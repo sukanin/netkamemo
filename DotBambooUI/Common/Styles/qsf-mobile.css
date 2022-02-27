@@ -1,0 +1,426 @@
+﻿/*
+* All common QSF variables are declared in this file.
+*/
+/*
+* SASS Files organization convention
+*
+* - Provide a description for each file, basicly what it does.
+*
+* - Name each section with comments like this:
+*
+* //== Section_Name
+* //
+* //## [Section description]
+*
+* - Leave TWO lines of empty space before each section comment and ONE lines after it
+*/
+/*
+* Variable name convention
+*
+* $[element]-[state]-[property]-[hint value]
+* example1: $btn-hover-bg -- ([element : btn]-[state : hover]-[property : bg])
+* example2: $font-size-sm -- ([property: font-size]-[hint value: sm])
+*
+*/
+@font-face {
+  font-family: 'TelerikMobileDemos';
+  src: url('../Fonts/demos.ttf') format('truetype'), url('../Fonts/demos.woff') format('woff');
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'TelerikWebUI';
+  src: url('../Fonts/TelerikWebUI.ttf') format('truetype'), url('../Fonts/TelerikWebUI.woff') format('woff');
+  font-weight: normal;
+  font-style: normal; }
+
+html, body, form {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+html {
+  font-size: 16px; }
+
+body {
+  color: #555555;
+  background-color: #ffffff;
+  font-size: 1rem;
+  font-family: 'HelveticaNeue Light', 'Roboto Light', 'Slate Light', 'Segoe WP', NokiaPureTextLight, sans-serif;
+  overflow: hidden; }
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+.tm-view {
+  height: 100%;
+  background-color: #ffffff;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  z-index: 2; }
+  .tm-view > .tm-header {
+    color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-width: 0 0 1px;
+    background-color: #2a2d33;
+    position: relative; }
+  .tm-view > .tm-header .tm-title {
+    margin: 0;
+    padding: 0;
+    font-size: 1.4em;
+    line-height: 3rem;
+    font-weight: normal;
+    text-align: center;
+    text-transform: capitalize; }
+  .tm-view > .tm-header .tm-primary {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.75rem; }
+  .tm-view > .tm-header .tm-secondary {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem; }
+  .tm-view > .tm-header a {
+    color: inherit; }
+  .tm-view .tm-header .tm-button {
+    padding: 0.3333em; }
+  .tm-view.tm-left-drawer-active .tm-header .tm-button-menu, .tm-view.tm-right-drawer-active .tm-header .tm-button-skinchooser {
+    color: #5ce600; }
+  .tm-view > .tm-content {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; }
+  .tm-view > .tm-footer {
+    padding: 0.75rem;
+    color: #ffffff;
+    background-color: #2a2d33;
+    line-height: 1.5rem;
+    text-align: center;
+    position: relative; }
+  .tm-view > .tm-footer a {
+    color: #38c0ff; }
+  .tm-view {
+    -webkit-transition: -webkit-transform 350ms ease-out;
+    transition: transform 350ms ease-out; }
+  .tm-view.tm-left-drawer-active {
+    -webkit-transform: translate3d(270px, 0, 0);
+    transform: translate3d(270px, 0, 0); }
+  .tm-view.tm-right-drawer-active {
+    -webkit-transform: translate3d(-270px, 0, 0);
+    transform: translate3d(-270px, 0, 0); }
+
+.tm-drawer {
+  width: 270px;
+  color: #ffffff;
+  background-color: #2a2d33;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0; }
+  .tm-drawer .tm-header {
+    padding: 0.5rem 20px; }
+  .tm-drawer .tm-header h4 {
+    margin: 0;
+    font-size: 1em;
+    line-height: inherit;
+    font-weight: bold;
+    text-transform: uppercase; }
+  .tm-drawer a {
+    color: inherit; }
+
+.tm-drawer-left {
+  left: 0; }
+
+.tm-drawer-right {
+  right: 0; }
+
+.tm-button {
+  display: inline-block;
+  vertical-align: middle;
+  outline: 0;
+  cursor: default; }
+
+.tm-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden; }
+
+.tm-icon-back:before {
+  content: "\e013";
+  font-family: "TelerikWebUI";
+  font-size: 2em;
+  position: relative;
+  left: -0.45em;
+  top: -0.33em; }
+
+.tm-icon-menu:before {
+  content: "\e602";
+  font: 1em/1em "TelerikMobileDemos" normal; }
+
+.tm-icon-skinchooser:before {
+  content: "\e601";
+  font: 1em/1em "TelerikMobileDemos" normal; }
+
+.home-page .tm-button-skinchooser, .home-page .tm-button-back, .demo-page .tm-button-menu {
+  display: none; }
+
+.tm-click-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: -100%; }
+
+#middle {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+
+#footer {
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1rem; }
+
+div.RadPanelBar_Qsf {
+  width: auto;
+  line-height: inherit; }
+  div.RadPanelBar_Qsf .rpRootGroup > .rpItem > .rpSlide {
+    height: auto !important;
+    display: block !important; }
+  div.RadPanelBar_Qsf .rpRootGroup {
+    border-width: 0; }
+  div.RadPanelBar_Qsf .rpGroup .rpGroup {
+    border-top: 1px solid #d4d9de;
+    background-color: #ebeef0; }
+  div.RadPanelBar_Qsf .rpGroup.rpLevel1 {
+    height: auto !important; }
+  div.RadPanelBar_Qsf .rpGroup .rpItem {
+    padding: 0;
+    line-height: 2; }
+  div.RadPanelBar_Qsf .rpGroup .rpItem.rpFirst, div.RadPanelBar_Qsf .rpGroup .rpItem.rpLast {
+    padding: 0; }
+  div.RadPanelBar_Qsf .rpRootLink {
+    cursor: default;
+    padding: 0.7em 1em;
+    border-width: 1px 0 0;
+    border-color: #dadee2;
+    color: #000000;
+    background-color: #f8f9fa;
+    line-height: inherit;
+    text-transform: uppercase;
+    font-weight: bold; }
+  div.RadPanelBar_Qsf .rpRootLink .rpExpandHandle {
+    display: none; }
+  div.RadPanelBar_Qsf .rpGroup .rpLink {
+    padding: 0.75em 1em;
+    border-width: 1px 0 0;
+    border-color: #dadee2;
+    color: #2d3e50; }
+  div.RadPanelBar_Qsf .rpGroup .rpExpanded {
+    color: #000000;
+    background-color: #ebeef0; }
+  div.RadPanelBar_Qsf .rpGroup a.rpLink {
+    border-width: 0; }
+  div.RadPanelBar_Qsf .rpGroup a.rpClicked {
+    color: #2d3e50;
+    background-color: #cad0d6; }
+  div.RadPanelBar_Qsf .rpLevel2 > .rpFirst > .rpLink {
+    border-top: 1px solid #ffffff;
+    text-transform: capitalize; }
+  div.RadPanelBar_Qsf .rpExpandHandle {
+    color: #9ca4ad; }
+  div.RadPanelBar_Qsf .rpExpanded .rpExpandHandle {
+    color: #39495a; }
+
+#about {
+  background-image: url("../Images/mobile/drawer-bg.jpg");
+  background-position: left -500px;
+  background-repeat: no-repeat;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+  #about #logo {
+    padding: 0;
+    height: 49px;
+    background: rgba(28, 31, 35, 0.4) url("../images/mobile/telerik-logo_210.png") 50% 50% no-repeat;
+    background-size: 210px; }
+    @media (webkit-min-device-pixel-ratio: 2) {
+      #about #logo {
+        background-image: url("../images/mobile/telerik-logo_420.png"); } }
+  #about .product-links {
+    padding: 20px;
+    -webkit-flex: 1;
+    flex: 1; }
+  #about .product-links a {
+    padding: 0.75em 0.75rem;
+    display: block; }
+  #about .quick-links {
+    padding: 20px;
+    font-size: 13px; }
+  #about .quick-links a {
+    padding: 0.75em 0.75rem;
+    display: block; }
+
+#skin-chooser {
+  line-height: 2rem;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+  #skin-chooser .skin-list {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; }
+  #skin-chooser .skin-list li {
+    display: block; }
+  #skin-chooser .skin-list a {
+    padding: 0.8em 2em;
+    border-width: 0 0 0 10px;
+    border-style: solid;
+    display: block; }
+  #skin-chooser .skin-list .selected a {
+    border-left-width: 20px;
+    background-color: #0f1011; }
+  #skin-chooser .skin-default {
+    border-color: #bebebe; }
+  #skin-chooser .skin-black {
+    border-color: #9eda29; }
+  #skin-chooser .skin-blackmetrotouch {
+    border-color: #25a0da; }
+  #skin-chooser .skin-bootstrap {
+    border-color: #428bca; }
+  #skin-chooser .skin-glow {
+    border-color: #ffa915; }
+  #skin-chooser .skin-metro {
+    border-color: #25a0da; }
+  #skin-chooser .skin-metrotouch {
+    border-color: #25a0da; }
+  #skin-chooser .skin-office2007 {
+    border-color: #bfdbff; }
+  #skin-chooser .skin-office2010black {
+    border-color: #6f6f6f; }
+  #skin-chooser .skin-office2010blue {
+    border-color: #8ba0bc; }
+  #skin-chooser .skin-office2010silver {
+    border-color: #83868c; }
+  #skin-chooser .skin-outlook {
+    border-color: #002d96; }
+  #skin-chooser .skin-silk {
+    border-color: #2dabc1; }
+  #skin-chooser .skin-simple {
+    border-color: #ffa517; }
+  #skin-chooser .skin-sunset {
+    border-color: #bb3a01; }
+  #skin-chooser .skin-telerik {
+    border-color: #2ebf00; }
+  #skin-chooser .skin-vista {
+    border-color: #0a5276; }
+  #skin-chooser .skin-web20 {
+    border-color: #6b8dc2; }
+  #skin-chooser .skin-webblue {
+    border-color: #358db0; }
+  #skin-chooser .skin-windows7 {
+    border-color: #c3dcfc; }
+
+#example {
+  margin-top: 40px; }
+
+#example:after {
+  content: "";
+  clear: both;
+  display: block; }
+
+.demo-container {
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: #f5f7f8;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; }
+  .demo-container:after {
+    content: "";
+    clear: both;
+    display: block; }
+  .demo-container h1, .demo-container h2, .demo-container h3, .demo-container h4, .demo-container h5, .demo-container h6 {
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase; }
+  .demo-container.size-thin {
+    width: 300px; }
+  .demo-container.size-narrow {
+    width: 500px; }
+  .demo-container.size-medium {
+    width: 600px; }
+  .demo-container.size-wide {
+    width: 800px; }
+  .background-black .demo-container {
+    border-color: #202020;
+    color: #ffffff;
+    background-color: #202020; }
+    .background-black .demo-container h2, .background-black .demo-container h3, .background-black .demo-container h4 {
+      color: inherit; }
+  .background-blackmetrotouch .demo-container {
+    border-color: #000000;
+    color: #ffffff;
+    background-color: #000000; }
+    .background-blackmetrotouch .demo-container h2, .background-blackmetrotouch .demo-container h3, .background-blackmetrotouch .demo-container h4 {
+      color: inherit; }
+  .background-glow .demo-container {
+    border-color: #29343b;
+    color: #ffffff;
+    background-color: #29343b; }
+    .background-glow .demo-container h2, .background-glow .demo-container h3, .background-glow .demo-container h4 {
+      color: inherit; }
+  .background-metro .demo-container {
+    background-color: #ffffff; }
+  .background-metrotouch .demo-container {
+    background-color: #ffffff; }
+  .background-office2010black .demo-container {
+    border-color: #6f6f6f;
+    background-color: #6f6f6f; }
+  .background-office2010silver .demo-container {
+    background-color: #dbdfe4; }
+  .background-silk .demo-container {
+    background-color: #f3f3f3; }
+  .demo-container.no-bg {
+    padding: 0;
+    color: inherit;
+    background-color: transparent; }
+
+.demo-containers {
+  text-align: center; }
+  .demo-containers .demo-container {
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    *zoom: 1;
+    *display: inline; }
+
+.demo-container {
+  /*> .RadGrid,
+	> .RadScheduler,
+	> .RadWizard {
+		height: 100%;
+		-webkit-flex: 1;
+		flex: 1;
+	}*/ }
+

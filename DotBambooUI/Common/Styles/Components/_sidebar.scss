@@ -1,0 +1,264 @@
+// Sidebar toggler
+#sidebar > .toggler {
+	margin: 0 0 0 1px;
+	width: 60px;
+	height: 60px;
+	background-color: #f5f7f8;
+	text-align: center;
+	vertical-align: middle;
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	left: 100%;
+	top: 0;
+	z-index: 2;
+
+	&:hover,
+	&.active {
+		background-color: #e2e4e7;
+	}
+
+	.icon {
+		margin-top: 20px;
+		width: 24px;
+		height: 24px;
+		text-indent: -999em;
+		background-image: url( "../images/qsf-skin-sprite.png" );
+		background-position: -13px -1262px;
+	}
+	.icon:hover {
+		background-position: -63px -1262px;
+	}
+}
+
+
+// Search
+#sidebar .search {
+	padding: 1em;
+}
+.demo-page .rsbSlide_Qsf {
+	position: fixed;
+	top: 141px !important;
+	left: 0 !important;
+	bottom: 0;
+	z-index: 999999 !important;
+}
+.demo-page.notification-bar-active .rsbSlide_Qsf {
+	top: 201px !important;
+}
+.demo-page .rsbPopup_Qsf {
+	padding: 0;
+	width: 300px;
+	height: 100%;
+	border-width: 0;
+	box-shadow: none;
+}
+.demo-page .rsbPopup_Qsf .rsbList {
+	max-height: none;
+	overflow-x: hidden;
+}
+.demo-page .rsbPopup_Qsf .rsbListItem {
+	padding: .5em 1em 1.5em;
+	position: relative;
+	line-height: 1.4;
+}
+.demo-page .rsbPopup_Qsf .control-name {
+	margin: 0;
+	line-height: normal;
+	float: none;
+	position: absolute;
+	bottom: .25em;
+}
+.demo-page .rsbPopup_Qsf .control-name {
+
+}
+
+
+
+
+// Navigation switch
+#nav-switch {
+	border-top: 1px solid #e2e4e7;
+	border-bottom: 1px solid #e2e4e7;
+}
+#nav-switch > span {
+	padding: 1em 50px;
+	display: block;
+	position: relative;
+	cursor: pointer;
+
+	&:hover {
+		color: #000000;
+		background-color: #e2e4e7;
+	}
+
+	&:before {
+		content: "";
+		width: 16px;
+		height: 16px;
+		background: url( "../images/qsf-skin-sprite.png" ) 0 0 no-repeat;
+		position: absolute;
+		top: 16px;
+	}
+	&.back-nav:before { background-position: -17px -517px; left: 25px; }
+	&.forward-nav:before { background-position: -17px -567px; right: 25px; }
+}
+
+
+
+
+// Navigation
+#nav {
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: absolute;
+	z-index: 1;
+	top: 110px;
+	left: 0;
+	bottom: 0;
+}
+#nav > .nav-wrap {
+	height: 100%;
+	width: 200%;
+	margin-left: -100%;
+
+	*zoom: 1;
+	&:after {content: ""; clear: both; display: block;}
+}
+#nav.root-nav-active > .nav-wrap {
+	margin-left: 0;
+}
+
+
+#root-nav,
+#sub-nav {
+	width: 50%;
+	float: left;
+}
+#root-nav {
+	height: 100%;
+	overflow: hidden;
+}
+.root-nav-active #root-nav {
+	height: auto;
+}
+
+
+
+
+// Tree view
+#nav .treeview {
+	padding: 1.5em 0;
+	white-space: normal;
+
+
+	// rtUL
+	ul {
+		margin: 0 0 15px;
+		padding: 0;
+	}
+	li li ul {
+		font-size: 13px;
+	}
+
+
+	// rtLI
+	li {
+		position: relative;
+	}
+
+
+	// Content holders
+	li > div { padding: 0; }
+
+
+	// Hide spacers
+	.rtSp { display: none; }
+
+
+	// Items
+	.rtIn {
+		margin: 0;
+		padding: 3px 50px;
+		border: 0;
+		line-height: 20px;
+		display: block;
+	}
+	a.rtIn {
+		*color: #2d3e50;
+	}
+	.rtRootNode {
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.rtCategory {
+		margin-top: 10px;
+		font-weight: bold;
+	}
+
+		.rtHover .rtIn {
+			color: #000000;
+			background-color: #e2e4e7;
+		}
+		.rtSelected .rtIn {
+			background-color: #e2e4e7;
+		}
+
+		.rtHover .rtRootNode,
+		.rtHover .rtCategory {
+			color: inherit;
+			background-color: transparent;
+		}
+
+
+	// Expand hadnlers
+	.rtPlus,
+	.rtMinus {
+		margin: 0;
+		padding: 0;
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		top: 5px;
+		left: 25px;
+		background: url( "../images/qsf-skin-sprite.png" ) 0 0 no-repeat;
+		display: none;
+	}
+		.rtPlus { background-position: -17px -767px; }
+		.rtMinus { background-position: -67px -667px; }
+
+		> ul > li > ul > li > div .rtPlus,
+		> ul > li > ul > li > div .rtMinus {
+			display: block;
+		}
+
+
+	// Badges
+	.new:before,
+	.updated:before,
+	.beta:before {
+		content: "";
+		width: 40px;
+		height: 9px;
+		background-color: red;
+		background-image: url( "../images/nav-badges.png" );
+		background-repeat: no-repeat;
+		position: absolute;
+		left: 0;
+		top: 8px;
+	}
+	.new:before {
+		background-color: #2eb246;
+		background-position: 100% 0;
+	}
+	.updated:before {
+		background-color: #0487c4;
+		background-position: 100% -9px;
+	}
+	.beta:before {
+		background-color: #fbbb32;
+		background-position: 100% -18px;
+	}
+
+}

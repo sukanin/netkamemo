@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{757C8EB1-6E27-4C4A-A91B-7DCF3DEEC652}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotBambooBLL</RootNamespace>
+    <AssemblyName>DotBambooBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Devart.Data.Linq, Version=4.5.981.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Framework\AccountCodeEO.cs" />
+    <Compile Include="Framework\AuditEO.cs" />
+    <Compile Include="Framework\AuditObjectEO.cs" />
+    <Compile Include="Framework\AuditObjectPropertyEO.cs" />
+    <Compile Include="Framework\BaseBO.cs" />
+    <Compile Include="Framework\BaseBOList.cs" />
+    <Compile Include="Framework\BaseEO.cs" />
+    <Compile Include="Framework\BaseEOList.cs" />
+    <Compile Include="Framework\BaseQueryBO.cs" />
+    <Compile Include="Framework\BomMasterEO.cs" />
+    <Compile Include="Framework\CapabilityBO.cs" />
+    <Compile Include="Framework\CapabilityBOList.cs" />
+    <Compile Include="Framework\CostCenterEO.cs" />
+    <Compile Include="Framework\EmailEO.cs" />
+    <Compile Include="Framework\ItemMasterEO.cs" />
+    <Compile Include="Framework\MemoEO.cs" />
+    <Compile Include="Framework\MenuItemBO.cs" />
+    <Compile Include="Framework\MenuItemBOList.cs" />
+    <Compile Include="Framework\NotificationEO.cs" />
+    <Compile Include="Framework\Property.cs" />
+    <Compile Include="Framework\MemoAttachmentEO.cs" />
+    <Compile Include="Framework\PurchaseAttachmentEO.cs" />
+    <Compile Include="Framework\PurchaseForecastAttachmentEO.cs" />
+    <Compile Include="Framework\PurchaseTodoEO.cs" />
+    <Compile Include="Framework\RoleCapabilityEO.cs" />
+    <Compile Include="Framework\RoleCapabilityEOList.cs" />
+    <Compile Include="Framework\RoleEO.cs" />
+    <Compile Include="Framework\RoleEOList.cs" />
+    <Compile Include="Framework\RoleUserAccountEO.cs" />
+    <Compile Include="Framework\RoleUserAccountEOList.cs" />
+    <Compile Include="Framework\UserAccountEO.cs" />
+    <Compile Include="Framework\UserAccountEOList.cs" />
+    <Compile Include="Framework\ValidationError.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ApprovePRItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotBambooCommon\DotBambooCommon.csproj">
+      <Project>{56ffd689-6b2f-40a4-b83c-60899924f99a}</Project>
+      <Name>DotBambooCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotBambooDAL\DotBambooDAL.csproj">
+      <Project>{352abb61-3605-4d73-8de4-ded124c389a2}</Project>
+      <Name>DotBambooDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

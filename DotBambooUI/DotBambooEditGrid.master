@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/DotBamboo.master" AutoEventWireup="true" CodeFile="DotBambooEditGrid.master.cs" Inherits="DotBambooEditGrid" %>
+
+<%@ Register assembly="FrameworkControls" namespace="FrameworkControls" tagprefix="cc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script language="javascript" type="text/javascript">
+        function ConfirmDelete()
+        {
+            return confirm("Do you want to delete/cancel this item?");        
+        }
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:UpdatePanel ID="UpdatePanelMaster" runat="server">
+        <ContentTemplate>
+            <table>
+        <tr>
+            <td>            
+                <cc1:ValidationErrorMessages ID="ValidationErrorMessages1" runat="server" />
+            </td>                     
+        </tr>
+    </table>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    
+    <table width="100%">
+        <tr>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server"></asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <asp:Button ID="btnAddNew" runat="server" Text="Create New" 
+                    Onclick="btnAddNew_Click" CausesValidation="false" />
+            </td>                        
+            <td>
+                <asp:Button ID="btnPrint" runat="server" Text="Print" Visible="false"
+                    OnClick="btnPrint_Click" />
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+

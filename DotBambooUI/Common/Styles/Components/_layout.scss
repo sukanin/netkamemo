@@ -1,0 +1,190 @@
+﻿// Notification bar
+.notification-bar {
+	padding: 20px 25px;
+	color: #000;
+	background-color: #ffda3f;
+	font-family: FaktSlabPro-Blond, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	line-height: 1;
+	text-align: center;
+	display: none;
+	position: relative;
+	z-index: 9000;
+
+	.close {
+		margin: -12px 0 0 0;
+		width: 23px;
+		height: 23px;
+		background: url("../images/qsf-notification-bar-close.png") center center no-repeat;
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		right: 25px;
+	}
+}
+
+
+// Header#main-header {
+#header {
+	padding: 20px;
+	color: #ffffff;
+	background-color: #2a2d33;
+
+
+	*zoom: 1;
+	&:after { content: ""; clear: both; display: block;}
+
+	// Logo
+	#logo {
+		float: left;
+		position: relative;
+	}
+	#logo .telerik-logo {
+		display: block;
+		height: 40px;
+	}
+	#logo .current-version {
+		margin: 1px 0 0 8px;
+		color: #818692;
+		font-size: 10px;
+		white-space: nowrap;
+		position: absolute;
+		left: 100%;
+		top: 0;
+	}
+
+	// Buttons
+	.nav-buttons {
+		float: right;
+
+		.btn {
+			margin: 0 4px;
+			color: #fff;
+			background-color: $btn-default-bg;
+			border-color: #505156;
+
+			&:hover {
+				background-color: $btn-default-hover-bg;
+			}
+		}
+
+		.btn-primary {
+			background-color: $btn-primary-bg;
+			border-color: $btn-primary-bg;
+
+			&:hover {
+				background-color: $btn-primary-hover-bg;
+				border-color: $btn-primary-hover-bg;
+			}
+		}
+	}
+}
+
+
+
+// Sub header
+#sub-header {
+	border-bottom: 1px solid $border-color;
+	background: $secondary-bg;
+}
+.home-page #sub-header {
+	padding: 34px 20px;
+}
+.demo-page #sub-header {}
+
+
+
+// Middle
+#middle {}
+
+
+// Main
+#main {
+	padding: 40px 80px;
+}
+
+
+// Footer
+#footer {
+	padding: 20px;
+	font-size: 12px;
+	color: #818692;
+	background: #2a2d33;
+
+
+	a { color: #ffffff; }
+	a:hover { color: #49c3fb; }
+
+
+	.nav {}
+	.nav > li { border-color: #555555; }
+
+
+	.copyrights {
+		margin-top: 10px;
+		padding-left: 40px;
+		background: url('../Images/telerik-footer-logo.png') 0 0 no-repeat;
+	}
+
+	address { font-style: normal; }
+}
+
+
+// Responsive
+@media only screen and (min-width: 1651px) {
+
+}
+
+
+@media only screen and (min-width: 1367px) and (max-width: 1650px) {
+
+	#main {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+	#main #footer {
+		margin-left: -60px;
+		margin-right: -60px;
+	}
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1366px){
+
+	#main {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+	#main #footer {
+		margin-left: -40px;
+		margin-right: -40px;
+	}
+
+}
+
+@media only screen and (max-width: 1199px ) {
+
+	#main {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	.btn {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	#main #footer {
+		margin-left: -40px;
+		margin-right: -40px;
+	}
+
+}
+
+
+@media only screen and (max-width: 719px ) {
+
+	#header .nav-buttons {
+		display: none;
+	}
+
+}

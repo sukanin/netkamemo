@@ -1,0 +1,584 @@
+//Core
+@import "components/variables";
+@import "components/mixins";
+
+
+@font-face {
+	font-family: 'TelerikMobileDemos';
+	src: url('../Fonts/demos.ttf') format('truetype'), url('../Fonts/demos.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'TelerikWebUI';
+	src: url('../Fonts/TelerikWebUI.ttf') format('truetype'), url('../Fonts/TelerikWebUI.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+html, body, form {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+html {
+	font-size: 16px;
+}
+body {
+	color: #555555;
+	background-color: #ffffff;
+	font-size: 1rem;
+	font-family: 'HelveticaNeue Light', 'Roboto Light', 'Slate Light', 'Segoe WP', NokiaPureTextLight, sans-serif;
+	overflow: hidden;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+
+
+// View
+.tm-view {
+	height: 100%;
+	background-color: #ffffff;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	position: relative;
+	z-index: 2;
+
+
+
+	// Header
+	> .tm-header {
+		color: #ffffff;
+		border: 1px solid rgba( 0, 0, 0, 0.1 );
+		border-width: 0 0 1px;
+		background-color: #2a2d33;
+		position:relative;
+	}
+	> .tm-header .tm-title {
+		margin: 0;
+		padding: 0;
+		font-size: 1.4em;
+		line-height: 3rem;
+		font-weight: normal;
+		text-align: center;
+		text-transform: capitalize;
+	}
+	> .tm-header .tm-primary {
+		position: absolute;
+		top: .5rem;
+		left: .75rem;
+	}
+	> .tm-header .tm-secondary {
+		position: absolute;
+		top: .5rem;
+		right: .75rem;
+	}
+	> .tm-header a {
+		color: inherit;
+	}
+	.tm-header .tm-button {
+		padding: .3333em;
+	}
+	&.tm-left-drawer-active .tm-header .tm-button-menu,
+	&.tm-right-drawer-active .tm-header .tm-button-skinchooser {
+		color: #5ce600;
+	}
+
+
+	// Content
+	> .tm-content {
+		-webkit-flex: 1;
+		flex: 1;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+
+	// Footer
+	> .tm-footer {
+		padding: .75rem;
+		color: #ffffff;
+		background-color: #2a2d33;
+		line-height: 1.5rem;
+		text-align: center;
+		position: relative;
+	}
+	> .tm-footer a {
+		color: #38c0ff;
+	}
+
+
+	// Animations
+	& {
+		-webkit-transition: -webkit-transform 350ms ease-out;
+		transition: transform 350ms ease-out;
+	}
+	&.tm-left-drawer-active {
+		-webkit-transform: translate3d(270px, 0, 0);
+		transform: translate3d(270px, 0, 0);
+	}
+	&.tm-right-drawer-active {
+		-webkit-transform: translate3d(-270px, 0, 0);
+		transform: translate3d(-270px, 0, 0);
+	}
+}
+
+
+
+
+// Drawers
+.tm-drawer {
+	width: 270px;
+	color: #ffffff;
+	background-color: #2a2d33;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+
+	.tm-header {
+		padding: .5rem 20px;
+	}
+	.tm-header h4 {
+		margin: 0;
+		font-size: 1em;
+		line-height: inherit;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	a {
+		color: inherit;
+	}
+}
+.tm-drawer-left {left: 0;}
+.tm-drawer-right {right: 0;}
+
+
+
+
+// Button
+.tm-button {
+	display: inline-block;
+	vertical-align: middle;
+	outline: 0;
+	cursor: default;
+}
+.tm-icon {
+	width: 1.3rem;
+	height: 1.3rem;
+	text-align: center;
+	white-space: nowrap;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.tm-icon-back:before {
+	content: "\e013";
+	font-family: "TelerikWebUI";
+	font-size: 2em;
+	position: relative;
+	left: -.45em;
+	top: -.33em;
+}
+.tm-icon-menu:before {
+	content: "\e602";
+	font: 1em/1em "TelerikMobileDemos" normal;
+}
+.tm-icon-skinchooser:before {
+	content: "\e601";
+	font: 1em/1em "TelerikMobileDemos" normal;
+}
+
+
+.home-page .tm-button-skinchooser,
+.home-page .tm-button-back,
+.demo-page .tm-button-menu {display: none}
+
+
+
+// Click overlay
+.tm-click-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 9999;
+	top: 0;
+	left: -100%;
+}
+
+
+
+
+// header
+#header {}
+
+
+
+// Middle
+#middle {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+
+
+#footer {
+	padding: .5rem;
+	font-size: .85rem;
+	line-height: 1rem;
+}
+
+
+
+
+// Navigation
+div.RadPanelBar_Qsf {
+	width: auto;
+	line-height: inherit;
+
+
+	// Sliders
+	.rpRootGroup > .rpItem > .rpSlide {
+		height: auto !important;
+		display: block !important;
+	}
+
+
+	// Group
+	.rpRootGroup {
+		border-width: 0;
+	}
+	.rpGroup {}
+	.rpGroup .rpGroup {
+		border-top: 1px solid #d4d9de;
+		background-color: #ebeef0;
+	}
+	.rpGroup.rpLevel1 {
+		height: auto !important;
+	}
+
+
+	// Item
+	.rpGroup .rpItem {
+		padding: 0;
+		line-height: 2;
+	}
+	.rpGroup .rpItem.rpFirst,
+	.rpGroup .rpItem.rpLast {
+		padding: 0;
+	}
+
+
+	// Root link
+	.rpRootLink {
+		cursor: default;
+		padding: .7em 1em;
+		border-width: 1px 0 0;
+		border-color: #dadee2;
+		color: #000000;
+		background-color: #f8f9fa;
+		line-height: inherit;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	.rpRootLink .rpExpandHandle {
+		display: none;
+	}
+
+	.rpGroup .rpLink {
+		padding: .75em 1em;
+		border-width: 1px 0 0;
+		border-color: #dadee2;
+		color: #2d3e50;
+	}
+	.rpGroup .rpExpanded {
+		color: #000000;
+		background-color: #ebeef0;
+	}
+	.rpGroup a.rpLink {
+		border-width: 0;
+	}
+	.rpGroup a.rpClicked {
+		color: #2d3e50;
+		background-color: #cad0d6;
+	}
+
+	.rpLevel2 > .rpFirst > .rpLink {
+		border-top: 1px solid #ffffff;
+		text-transform: capitalize;
+	}
+
+
+	.rpExpandHandle {
+		color: #9ca4ad;
+	}
+	.rpExpanded .rpExpandHandle {
+		color: #39495a;
+	}
+}
+
+
+
+
+// About drawer
+#about {
+	//background-image: linear-gradient( -120deg, #386673, #000000 );
+	background-image: url( "../Images/mobile/drawer-bg.jpg" );
+	background-position: left -500px;
+	background-repeat: no-repeat;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+
+
+	#logo {
+		padding: 0;
+		height: 49px;
+		background: rgba( #1c1f23, .4) url( "../images/mobile/telerik-logo_210.png" ) 50% 50% no-repeat;
+		background-size: 210px;
+
+		@media (webkit-min-device-pixel-ratio: 2) {
+			background-image: url( "../images/mobile/telerik-logo_420.png" );
+		}
+	}
+
+
+	.product-links {
+		padding: 20px;
+		-webkit-flex: 1;
+		flex: 1;
+	}
+	.product-links a {
+		padding: .75em .75rem;
+		display: block;
+	}
+
+
+	.quick-links {
+		padding: 20px;
+		font-size: 13px;
+	}
+	.quick-links a {
+		padding: .75em .75rem;
+		display: block;
+	}
+}
+
+
+
+
+// Skin chooser
+#skin-chooser {
+	line-height: 2rem;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+
+
+	.skin-list {
+		-webkit-flex: 1;
+		flex: 1;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.skin-list li {
+		display: block;
+	}
+	.skin-list a {
+		padding: .8em 2em;
+		border-width: 0 0 0 10px;
+		border-style: solid;
+		display: block;
+	}
+	.skin-list .selected a {
+		border-left-width: 20px;
+		background-color: #0f1011;
+	}
+
+
+	.skin-default {border-color: #bebebe}
+	.skin-black {border-color: #9eda29}
+	.skin-blackmetrotouch {border-color: #25a0da}
+	.skin-bootstrap {border-color: #428bca}
+	.skin-glow {border-color: #ffa915}
+	.skin-metro {border-color: #25a0da}
+	.skin-metrotouch {border-color: #25a0da}
+	.skin-office2007 {border-color: #bfdbff}
+	.skin-office2010black {border-color: #6f6f6f}
+	.skin-office2010blue {border-color: #8ba0bc}
+	.skin-office2010silver {border-color: #83868c}
+	.skin-outlook {border-color: #002d96}
+	.skin-silk {border-color: #2dabc1}
+	.skin-simple {border-color: #ffa517}
+	.skin-sunset {border-color: #bb3a01}
+	.skin-telerik {border-color: #2ebf00}
+	.skin-vista {border-color: #0a5276}
+	.skin-web20 {border-color: #6b8dc2}
+	.skin-webblue {border-color: #358db0}
+	.skin-windows7 {border-color: #c3dcfc}
+
+}
+
+
+
+
+// Example wrapper
+#example {
+	margin-top: 40px;
+}
+#example:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+
+
+
+// Demo container
+.demo-container {
+	padding: 30px;
+	//height: 100%;
+	box-sizing: border-box;
+	background-color: #f5f7f8;
+	-webkit-flex: 1;
+	flex: 1;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+
+	&:after {content: ""; clear: both; display: block; }
+
+
+	// Content
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0 0 10px 0;
+		font-size: 12px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+
+	// Demo container sizes
+	&.size-thin {width: 300px}
+	&.size-narrow {width: 500px}
+	&.size-medium {width: 600px}
+	&.size-wide {width: 800px}
+
+
+	// Demo container backgrounds
+	.background-default & {}
+	.background-black & {
+		border-color: #202020;
+		color: #ffffff;
+		background-color: #202020;
+
+		h2, h3, h4 { color: inherit }
+	}
+	.background-blackmetrotouch & {
+		border-color: #000000;
+		color: #ffffff;
+		background-color: #000000;
+
+		h2, h3, h4 { color: inherit }
+	}
+	.background-glow & {
+		border-color: #29343b;
+		color: #ffffff;
+		background-color: #29343b;
+
+		h2, h3, h4 { color: inherit }
+	}
+	.background-metro & {
+		background-color: #ffffff;
+	}
+	.background-metrotouch & {
+		background-color: #ffffff;
+	}
+	.background-office2007 & {}
+	.background-office2010black & {
+		border-color: #6f6f6f;
+		background-color: #6f6f6f;
+	}
+	.background-office2010blue & {}
+	.background-office2010silver & {
+		background-color: #dbdfe4;
+	}
+	.background-outlook & {}
+	.background-silk & {
+		background-color: #f3f3f3;
+	}
+	.background-simple & {}
+	.background-sunset & {}
+	.background-telerik & {}
+	.background-vista & {}
+	.background-web20 & {}
+	.background-webblue & {}
+	.background-windows7 & {}
+
+	&.no-bg {
+		padding: 0;
+		color: inherit;
+		background-color: transparent;
+	}
+
+}
+.demo-containers {
+	text-align: center;
+
+	.demo-container {
+		text-align: left;
+		display: inline-block;
+		vertical-align: top;
+		*zoom: 1;
+		*display: inline;
+	}
+}
+
+
+
+
+// Controls
+.demo-container {
+
+
+	/*> .RadGrid,
+	> .RadScheduler,
+	> .RadWizard {
+		height: 100%;
+		-webkit-flex: 1;
+		flex: 1;
+	}*/
+
+}
+
+
+
+// Responsive
+@media only screen and (min-width: 0) {}
+
+@media only screen and (min-width: 1651px) {}
+
+@media only screen and (min-width: 1367px) and (max-width: 1650px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1366px) {}
+
+@media only screen and (max-width: 1199px ) {}

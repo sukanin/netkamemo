@@ -1,0 +1,352 @@
+$VAR1 = bless( {
+                 '_logout_on_disconnect' => 1,
+                 'service_url' => 'https://172.20.11.165:443/sdk/vimService.wsdl',
+                 'vim_service' => bless( {
+                                           'vim_soap' => bless( {
+                                                                  'user_agent' => bless( {
+                                                                                           'max_redirect' => 7,
+                                                                                           'conn_cache' => bless( {
+                                                                                                                    'cc_limit_total' => 1,
+                                                                                                                    'cc_conns' => [
+                                                                                                                                    [
+                                                                                                                                      bless( \*Symbol::GEN1, 'LWP::Protocol::https::Socket' ),
+                                                                                                                                      'http',
+                                                                                                                                      '172.20.11.165:443',
+                                                                                                                                      1625199086
+                                                                                                                                    ]
+                                                                                                                                  ]
+                                                                                                                  }, 'LWP::ConnCache' ),
+                                                                                           'protocols_forbidden' => undef,
+                                                                                           'show_progress' => undef,
+                                                                                           'handlers' => {
+                                                                                                           'request_prepare' => bless( [
+                                                                                                                                         {
+                                                                                                                                           'owner' => 'LWP::UserAgent::cookie_jar',
+                                                                                                                                           'callback' => sub { "DUMMY" },
+                                                                                                                                           'line' => 'C:/Perl/lib/LWP/UserAgent.pm:629'
+                                                                                                                                         }
+                                                                                                                                       ], 'HTTP::Config' ),
+                                                                                                           'response_header' => bless( [
+                                                                                                                                         {
+                                                                                                                                           'owner' => 'LWP::UserAgent::parse_head',
+                                                                                                                                           'callback' => sub { "DUMMY" },
+                                                                                                                                           'm_media_type' => 'html',
+                                                                                                                                           'line' => 'C:/Perl/lib/LWP/UserAgent.pm:608'
+                                                                                                                                         }
+                                                                                                                                       ], 'HTTP::Config' ),
+                                                                                                           'response_done' => bless( [
+                                                                                                                                       {
+                                                                                                                                         'owner' => 'LWP::UserAgent::cookie_jar',
+                                                                                                                                         'callback' => sub { "DUMMY" },
+                                                                                                                                         'line' => 'C:/Perl/lib/LWP/UserAgent.pm:632'
+                                                                                                                                       }
+                                                                                                                                     ], 'HTTP::Config' )
+                                                                                                         },
+                                                                                           'no_proxy' => [],
+                                                                                           'protocols_allowed' => [
+                                                                                                                    'http',
+                                                                                                                    'https'
+                                                                                                                  ],
+                                                                                           'use_eval' => 1,
+                                                                                           'requests_redirectable' => [
+                                                                                                                        'GET',
+                                                                                                                        'HEAD'
+                                                                                                                      ],
+                                                                                           'timeout' => 180,
+                                                                                           'cookie_jar' => bless( {
+                                                                                                                    'ignore_discard' => 1,
+                                                                                                                    'COOKIES' => {
+                                                                                                                                   '172.20.11.165' => {
+                                                                                                                                                        '/' => {
+                                                                                                                                                                 'vmware_soap_session' => [
+                                                                                                                                                                                            0,
+                                                                                                                                                                                            '"447533c820f972697b64d0219743ba931ffd4c7f"',
+                                                                                                                                                                                            undef,
+                                                                                                                                                                                            1,
+                                                                                                                                                                                            1,
+                                                                                                                                                                                            undef,
+                                                                                                                                                                                            1,
+                                                                                                                                                                                            {
+                                                                                                                                                                                              'HttpOnly' => undef
+                                                                                                                                                                                            }
+                                                                                                                                                                                          ]
+                                                                                                                                                               }
+                                                                                                                                                      }
+                                                                                                                                 }
+                                                                                                                  }, 'HTTP::Cookies' ),
+                                                                                           'def_headers' => bless( {
+                                                                                                                     'user-agent' => 'VI Perl'
+                                                                                                                   }, 'HTTP::Headers' ),
+                                                                                           'proxy' => {},
+                                                                                           'max_size' => undef
+                                                                                         }, 'LWP::UserAgent' ),
+                                                                  'url' => 'https://172.20.11.165:443/sdk/vimService.wsdl'
+                                                                }, 'SoapClient' )
+                                         }, 'VimService' ),
+                 'service_content' => bless( {
+                                               'hostProfileManager' => bless( {
+                                                                                'value' => 'HostProfileManager',
+                                                                                'type' => 'HostProfileManager'
+                                                                              }, 'ManagedObjectReference' ),
+                                               'eventManager' => bless( {
+                                                                          'value' => 'EventManager',
+                                                                          'type' => 'EventManager'
+                                                                        }, 'ManagedObjectReference' ),
+                                               'alarmManager' => bless( {
+                                                                          'value' => 'AlarmManager',
+                                                                          'type' => 'AlarmManager'
+                                                                        }, 'ManagedObjectReference' ),
+                                               'searchIndex' => bless( {
+                                                                         'value' => 'SearchIndex',
+                                                                         'type' => 'SearchIndex'
+                                                                       }, 'ManagedObjectReference' ),
+                                               'failoverClusterManager' => bless( {
+                                                                                    'value' => 'FailoverClusterManager',
+                                                                                    'type' => 'FailoverClusterManager'
+                                                                                  }, 'ManagedObjectReference' ),
+                                               'ovfManager' => bless( {
+                                                                        'value' => 'OvfManager',
+                                                                        'type' => 'OvfManager'
+                                                                      }, 'ManagedObjectReference' ),
+                                               'authorizationManager' => bless( {
+                                                                                  'value' => 'AuthorizationManager',
+                                                                                  'type' => 'AuthorizationManager'
+                                                                                }, 'ManagedObjectReference' ),
+                                               'taskManager' => bless( {
+                                                                         'value' => 'TaskManager',
+                                                                         'type' => 'TaskManager'
+                                                                       }, 'ManagedObjectReference' ),
+                                               'about' => bless( {
+                                                                   'fullName' => 'VMware vCenter Server 6.5.0 build-17994927',
+                                                                   'licenseProductVersion' => '6.0',
+                                                                   'version' => '6.5.0',
+                                                                   'apiVersion' => '6.5',
+                                                                   'name' => 'VMware vCenter Server',
+                                                                   'localeBuild' => '000',
+                                                                   'build' => '17994927',
+                                                                   'localeVersion' => 'INTL',
+                                                                   'instanceUuid' => '1d2ced92-e41a-4f82-866b-7c5d2a1b5135',
+                                                                   'apiType' => 'VirtualCenter',
+                                                                   'licenseProductName' => 'VMware VirtualCenter Server',
+                                                                   'osType' => 'linux-x64',
+                                                                   'productLineId' => 'vpx',
+                                                                   'vendor' => 'VMware, Inc.'
+                                                                 }, 'AboutInfo' ),
+                                               'overheadMemoryManager' => bless( {
+                                                                                   'value' => 'OverheadMemoryManager',
+                                                                                   'type' => 'OverheadMemoryManager'
+                                                                                 }, 'ManagedObjectReference' ),
+                                               'virtualDiskManager' => bless( {
+                                                                                'value' => 'virtualDiskManager',
+                                                                                'type' => 'VirtualDiskManager'
+                                                                              }, 'ManagedObjectReference' ),
+                                               'cryptoManager' => bless( {
+                                                                           'value' => 'CryptoManager',
+                                                                           'type' => 'CryptoManagerKmip'
+                                                                         }, 'ManagedObjectReference' ),
+                                               'certificateManager' => bless( {
+                                                                                'value' => 'certificateManager',
+                                                                                'type' => 'CertificateManager'
+                                                                              }, 'ManagedObjectReference' ),
+                                               'dvSwitchManager' => bless( {
+                                                                             'value' => 'DVSManager',
+                                                                             'type' => 'DistributedVirtualSwitchManager'
+                                                                           }, 'ManagedObjectReference' ),
+                                               'vmCompatibilityChecker' => bless( {
+                                                                                    'value' => 'CompatChecker',
+                                                                                    'type' => 'VirtualMachineCompatibilityChecker'
+                                                                                  }, 'ManagedObjectReference' ),
+                                               'perfManager' => bless( {
+                                                                         'value' => 'PerfMgr',
+                                                                         'type' => 'PerformanceManager'
+                                                                       }, 'ManagedObjectReference' ),
+                                               'snmpSystem' => bless( {
+                                                                        'value' => 'SnmpSystem',
+                                                                        'type' => 'HostSnmpSystem'
+                                                                      }, 'ManagedObjectReference' ),
+                                               'diagnosticManager' => bless( {
+                                                                               'value' => 'DiagMgr',
+                                                                               'type' => 'DiagnosticManager'
+                                                                             }, 'ManagedObjectReference' ),
+                                               'setting' => bless( {
+                                                                     'value' => 'VpxSettings',
+                                                                     'type' => 'OptionManager'
+                                                                   }, 'ManagedObjectReference' ),
+                                               'sessionManager' => bless( {
+                                                                            'value' => 'SessionManager',
+                                                                            'type' => 'SessionManager'
+                                                                          }, 'ManagedObjectReference' ),
+                                               'ipPoolManager' => bless( {
+                                                                           'value' => 'IpPoolManager',
+                                                                           'type' => 'IpPoolManager'
+                                                                         }, 'ManagedObjectReference' ),
+                                               'extensionManager' => bless( {
+                                                                              'value' => 'ExtensionManager',
+                                                                              'type' => 'ExtensionManager'
+                                                                            }, 'ManagedObjectReference' ),
+                                               'licenseManager' => bless( {
+                                                                            'value' => 'LicenseManager',
+                                                                            'type' => 'LicenseManager'
+                                                                          }, 'ManagedObjectReference' ),
+                                               'propertyCollector' => bless( {
+                                                                               'value' => 'propertyCollector',
+                                                                               'type' => 'PropertyCollector'
+                                                                             }, 'ManagedObjectReference' ),
+                                               'hostSpecManager' => bless( {
+                                                                             'value' => 'HostSpecificationManager',
+                                                                             'type' => 'HostSpecificationManager'
+                                                                           }, 'ManagedObjectReference' ),
+                                               'userDirectory' => bless( {
+                                                                           'value' => 'UserDirectory',
+                                                                           'type' => 'UserDirectory'
+                                                                         }, 'ManagedObjectReference' ),
+                                               'scheduledTaskManager' => bless( {
+                                                                                  'value' => 'ScheduledTaskManager',
+                                                                                  'type' => 'ScheduledTaskManager'
+                                                                                }, 'ManagedObjectReference' ),
+                                               'fileManager' => bless( {
+                                                                         'value' => 'FileManager',
+                                                                         'type' => 'FileManager'
+                                                                       }, 'ManagedObjectReference' ),
+                                               'rootFolder' => bless( {
+                                                                        'value' => 'group-d1',
+                                                                        'type' => 'Folder'
+                                                                      }, 'ManagedObjectReference' ),
+                                               'complianceManager' => bless( {
+                                                                               'value' => 'MoComplianceManager',
+                                                                               'type' => 'ProfileComplianceManager'
+                                                                             }, 'ManagedObjectReference' ),
+                                               'storageResourceManager' => bless( {
+                                                                                    'value' => 'StorageResourceManager',
+                                                                                    'type' => 'StorageResourceManager'
+                                                                                  }, 'ManagedObjectReference' ),
+                                               'vStorageObjectManager' => bless( {
+                                                                                   'value' => 'VStorageObjectManager',
+                                                                                   'type' => 'VcenterVStorageObjectManager'
+                                                                                 }, 'ManagedObjectReference' ),
+                                               'clusterProfileManager' => bless( {
+                                                                                   'value' => 'ClusterProfileManager',
+                                                                                   'type' => 'ClusterProfileManager'
+                                                                                 }, 'ManagedObjectReference' ),
+                                               'customFieldsManager' => bless( {
+                                                                                 'value' => 'CustomFieldsManager',
+                                                                                 'type' => 'CustomFieldsManager'
+                                                                               }, 'ManagedObjectReference' ),
+                                               'vmProvisioningChecker' => bless( {
+                                                                                   'value' => 'ProvChecker',
+                                                                                   'type' => 'VirtualMachineProvisioningChecker'
+                                                                                 }, 'ManagedObjectReference' ),
+                                               'ioFilterManager' => bless( {
+                                                                             'value' => 'IoFilterManager',
+                                                                             'type' => 'IoFilterManager'
+                                                                           }, 'ManagedObjectReference' ),
+                                               'guestOperationsManager' => bless( {
+                                                                                    'value' => 'guestOperationsManager',
+                                                                                    'type' => 'GuestOperationsManager'
+                                                                                  }, 'ManagedObjectReference' ),
+                                               'datastoreNamespaceManager' => bless( {
+                                                                                       'value' => 'DatastoreNamespaceManager',
+                                                                                       'type' => 'DatastoreNamespaceManager'
+                                                                                     }, 'ManagedObjectReference' ),
+                                               'viewManager' => bless( {
+                                                                         'value' => 'ViewManager',
+                                                                         'type' => 'ViewManager'
+                                                                       }, 'ManagedObjectReference' ),
+                                               'healthUpdateManager' => bless( {
+                                                                                 'value' => 'HealthUpdateManager',
+                                                                                 'type' => 'HealthUpdateManager'
+                                                                               }, 'ManagedObjectReference' ),
+                                               'localizationManager' => bless( {
+                                                                                 'value' => 'LocalizationManager',
+                                                                                 'type' => 'LocalizationManager'
+                                                                               }, 'ManagedObjectReference' ),
+                                               'serviceManager' => bless( {
+                                                                            'value' => 'ServiceMgr',
+                                                                            'type' => 'ServiceManager'
+                                                                          }, 'ManagedObjectReference' ),
+                                               'failoverClusterConfigurator' => bless( {
+                                                                                         'value' => 'FailoverClusterConfigurator',
+                                                                                         'type' => 'FailoverClusterConfigurator'
+                                                                                       }, 'ManagedObjectReference' ),
+                                               'customizationSpecManager' => bless( {
+                                                                                      'value' => 'CustomizationSpecManager',
+                                                                                      'type' => 'CustomizationSpecManager'
+                                                                                    }, 'ManagedObjectReference' )
+                                             }, 'ServiceContent' )
+               }, 'Vim' );
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta charset="UTF-8" /><title>
+	Netka Memo System
+</title><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=no, height=device-height" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta name="author" content="Sukanin.M" /><meta name="description" /><link href="/netkamemo/Telerik.Web.UI.WebResource.axd?d=jxqvosbJhsFEt1lDl6bdlWSeXXblhJCt7rQWPbBT3Hyyyv4B8Z2jKnrf480n9DvpLNrzbGaxYDCzuOHU1cq5O1YG4q5h7NZxUqOUWNSAQcgrYJkjDjQd8vpeeUObfWnHLJ61e2UugD9SUChryw1ldQ2&amp;t=637564828900000000&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3b%7c636530115797057433%3aca2297e6%3a48beaeb3" type="text/css" rel="stylesheet" /></head>
+<body class="qsf-body demo-page">
+    <form method="post" action="./download_attachment.aspx?ID=1" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="DotbambooScriptManager_TSM" id="DotbambooScriptManager_TSM" value="" />
+<input type="hidden" name="DotbambooStyleSheetManager_TSSM" id="DotbambooStyleSheetManager_TSSM" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTg3OTE4NjY4Mg8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBZGR0OZvKrcP2QYRHNEpOSS2DL00BKzKUfzOInyGxH6xrFg==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/netkamemo/WebResource.axd?d=1m7LPXXehyhzSgt4DztMFXm1alsJ3B57PmUw6yvnP1q8mo49rpbEtMsLyx1bORDImUhjbHQZ_MDnH2455xc68t3sCQCPt2e4Rg86z1zTRGE1&amp;t=637454322340000000" type="text/javascript"></script>
+
+
+<script src="/netkamemo/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=DotbambooScriptManager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-US%3aba1d5018-bf9d-4762-82f6-06087a49b5f6%3aea597d4b%3ab25378d2%3bTelerik.Web.UI%3aen-US%3a4f93cdea-660e-49e9-b57d-168c603f1b46%3a16e4e7cd%3af7645509" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="../Common/Scripts/qsf-scripts.js" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="79CE1931" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('DotbambooScriptManager', 'form1', [], [], [], 90, '');
+//]]>
+</script>
+
+        
+        <div id="main">
+            <h2>Download File</h2>
+        </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+;(function() {
+                        function loadHandler() {
+                            var hf = $get('DotbambooStyleSheetManager_TSSM');
+                            if (!hf._RSSM_init) { hf._RSSM_init = true; hf.value = ''; }
+                            hf.value += ';|636530115797057433:ca2297e6:48beaeb3';
+                            Sys.Application.remove_load(loadHandler);
+                        };
+                        Sys.Application.add_load(loadHandler);
+                    })();//]]>
+</script>
+</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/DotBamboo.master" AutoEventWireup="true" CodeFile="DotBambooEditPage.master.cs" Inherits="DotBambooEditPage" %>
+
+<%@ Register Assembly="FrameworkControls" Namespace="FrameworkControls" TagPrefix="cc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script language="javascript" type="text/javascript">
+        function ConfirmSave()
+        {
+            return confirm("Do you want to save this item?");        
+        }
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table>
+        <tr>
+            <td>
+                <cc1:ValidationErrorMessages ID="ValidationErrorMessages1" runat="server" />
+            </td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server"></asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <asp:Button ID="btnSave" runat="server" Text="Save" OnClientClick="return ConfirmSave()" OnClick="btnSave_Click" />
+            </td>
+            <td>
+                <asp:Button ID="btnPrint" runat="server" Text="Print" OnClick="btnPrint_Click" Visible="false" />
+            </td>
+            <td>
+                <asp:Button ID="btnAddNew" runat="server" Text="Create New" OnClick="btnAddNew_Click" CausesValidation="false" />
+            </td>
+            <td>
+                <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" CausesValidation="false" />
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+

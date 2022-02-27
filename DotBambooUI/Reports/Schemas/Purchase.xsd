@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Purchase" targetNamespace="http://tempuri.org/Purchase.xsd" xmlns:mstns="http://tempuri.org/Purchase.xsd" xmlns="http://tempuri.org/Purchase.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Purchase" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Purchase">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseId" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseType" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="ApplicantName" type="xs:string" minOccurs="0" />
+              <xs:element name="Section" type="xs:string" minOccurs="0" />
+              <xs:element name="CostCenter" type="xs:string" minOccurs="0" />
+              <xs:element name="PmOrder" type="xs:string" minOccurs="0" />
+              <xs:element name="DateOfUse" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DeliveryTo" type="xs:string" minOccurs="0" />
+              <xs:element name="DeliveryAt" type="xs:string" minOccurs="0" />
+              <xs:element name="Total" type="xs:double" minOccurs="0" />
+              <xs:element name="Vat" type="xs:double" minOccurs="0" />
+              <xs:element name="GrandTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="Reason" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseConfirmBy" type="xs:string" minOccurs="0" />
+              <xs:element name="ReviewConfirmBy" type="xs:string" minOccurs="0" />
+              <xs:element name="ApproveConfirmBy" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PurchaseConfirmDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ReviewConfirmDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ApproveConfirmDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RequestorConfirmDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PurchaseItem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PurchaseId" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemSeq" type="xs:int" minOccurs="0" />
+              <xs:element name="PurchaseItemAccode" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemService" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemQty" type="xs:int" minOccurs="0" />
+              <xs:element name="PurchaseItemUnit" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemUnitPrice" type="xs:double" minOccurs="0" />
+              <xs:element name="PurchaseItemAmount" type="xs:double" minOccurs="0" />
+              <xs:element name="Vendor" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemPn" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemBrand" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemModel" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemColor" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PurchaseOrder">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PurchaseOrderId" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseOrderNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseOrderDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="VendorCode" type="xs:string" minOccurs="0" />
+              <xs:element name="VendorName" type="xs:string" minOccurs="0" />
+              <xs:element name="VendorAddress" type="xs:string" minOccurs="0" />
+              <xs:element name="VendorTel" type="xs:string" minOccurs="0" />
+              <xs:element name="VendorFax" type="xs:string" minOccurs="0" />
+              <xs:element name="DeliveryDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TermPayment" type="xs:string" minOccurs="0" />
+              <xs:element name="PayBy" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="DeliveryTo" type="xs:string" minOccurs="0" />
+              <xs:element name="AttnTo" type="xs:string" minOccurs="0" />
+              <xs:element name="Remark" type="xs:string" minOccurs="0" />
+              <xs:element name="Total" type="xs:double" minOccurs="0" />
+              <xs:element name="Vat" type="xs:double" minOccurs="0" />
+              <xs:element name="GrandTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="ApproveConfirmBy" type="xs:string" minOccurs="0" />
+              <xs:element name="ApproveConfirmDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PurchaseOrderItem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PurchaseOrderId" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseOrderNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseOrderItemSeq" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseOrderItemDescription" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemQty" type="xs:int" minOccurs="0" />
+              <xs:element name="PurchaseItemUnit" type="xs:string" minOccurs="0" />
+              <xs:element name="PurchaseItemUnitPrice" type="xs:double" minOccurs="0" />
+              <xs:element name="PurchaseItemAmount" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

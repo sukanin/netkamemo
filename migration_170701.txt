@@ -1,0 +1,23 @@
+ALTER TABLE `dotbamboo`.`credit` ADD COLUMN `deleted` BOOLEAN NOT NULL DEFAULT 0 AFTER `credit_memo`;
+
+CREATE TABLE  `dotbamboo`.`credit_cancel` (
+  `credit_cancel_id` int(11) NOT NULL AUTO_INCREMENT,
+  `credit_id` int(11) NOT NULL,
+  `credit_number` varchar(50) NOT NULL,
+  `credit_cancel_reason` varchar(100) NOT NULL,
+  `cus_code` varchar(10) NOT NULL,
+  `cus_name` varchar(100) NOT NULL,
+  `insert_date` datetime NOT NULL,
+  `insert_user_account_id` int(11) NOT NULL,
+  `update_date` datetime NOT NULL,
+  `update_user_account_id` int(11) NOT NULL,
+  `version` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`credit_cancel_id`),
+  KEY `cus_code` (`cus_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into menu_item value
+(60, 'CreditCancels', 'ใบลดหนี้ที่ยกเลิก', 'CreditCancels.aspx', 1, 20, 0, '2015-01-01 00:00:00', 1, '2015-01-01 00:00:00', 1, '2015-05-12 23:55:51');
+insert into capability value
+(70, 'CreditCancels', 60, 0, '2015-01-01 00:00:00', 1, '2015-01-01 00:00:00', 1, '2015-10-29 14:39:08'),
+(71, 'CreditCancels List', 60, 0, '2015-01-01 00:00:00', 1, '2015-01-01 00:00:00', 1, '2015-10-29 14:39:08');

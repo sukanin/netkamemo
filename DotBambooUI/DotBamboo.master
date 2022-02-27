@@ -1,0 +1,118 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DotBamboo.master.cs" Inherits="DotBamboo" %>
+<%@ Register Src="~/Common/UserControls/LeftNavigation.ascx" TagPrefix="qsf" TagName="LeftNavigation" %>
+<%@ Register Src="~/Common/UserControls/SkinChooser.ascx" TagName="SkinChooser" TagPrefix="qsf" %>
+<%@ Register Assembly="FrameworkControls" Namespace="FrameworkControls" TagPrefix="cc1" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <title>Netka Memo System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=no, height=device-height" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Sukanin.M" />
+    <meta name="description" content="" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link type="image/x-icon" href="favicon.ico" rel="shortcut icon" />
+	<link href="vendor/select2/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<body class="qsf-body demo-page">
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="DotbambooScriptManager" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+                <asp:ScriptReference Path="~/Common/Scripts/qsf-scripts.js" />
+				<asp:ScriptReference Path="~/Common/Scripts/jquery-3.3.1.min.js" />
+				<asp:ScriptReference Path="~/Common/Scripts/select2.min.js" />
+            </Scripts>
+        </telerik:RadScriptManager>
+        <telerik:RadStyleSheetManager ID="DotbambooStyleSheetManager" runat="server">
+            <StyleSheets>
+                <telerik:StyleSheetReference Path="~/Common/Styles/qsf-styles.css" />
+                <telerik:StyleSheetReference Path="~/Common/Styles/qsf-skin.css" />
+            </StyleSheets>
+        </telerik:RadStyleSheetManager>
+        <div id="header">
+            <div id="logo">
+                <a href="<%= ResolveUrl( "~/" ) %>" title="Application" class="telerik-logo">
+                    <asp:Image runat="server" ID="TelerikLogoImage" ImageUrl="~/Common/Images/telerik-logo2.png" AlternateText="Application"/>
+                </a>
+            </div>
+            <div class="nav-buttons">
+                <asp:Label ID="Label1" runat="server" Text="Current User : ">
+                </asp:Label>
+                <asp:Label ID="lblCurrentUser" runat="server" Text=""></asp:Label>
+                <asp:LinkButton ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click"></asp:LinkButton>
+                <br />
+                <asp:Label ID="lblCurrentDateTime" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+        <div id="middle">
+            <div class="sb" id="sidebar">
+                <span class="toggler" id="sidebar-toggler"><span class="icon icon-sandwich">Toggle sidebar</span></span>
+
+                <div class="search">
+                    <telerik:RadSearchBox ID="SearchBox" runat="server" EmptyMessage="Search" Skin="Qsf" EnableEmbeddedSkins="false"
+                        OnClientSearch="demoSearch" >
+                        <DropDownSettings CssClass="search-popup">
+                            <ClientTemplate>
+                                <span class="control-name">#= Text #</span>
+                                <span class="demo-name">#= DataItem.Text #</span>
+                            </ClientTemplate>
+                        </DropDownSettings>
+                        <WebServiceSettings Path="~/Common/Services/SearchResultsService.svc" Method="GetSearchResults" />
+                    </telerik:RadSearchBox>
+
+                    <script type="text/javascript">
+                        //<![CDATA[
+                            (function() {
+                                var $ = $telerik.$;
+
+                                window.demoSearch = function(sender, args) {
+                                    var firstItem = $(sender.get_dropDownElement()).find(".rsbListItem").get(0);
+                                    var url = args.get_value() || (firstItem ? firstItem._data.value : null);
+
+                                    if (url) {
+                                        window.location.href = url;
+                                    }
+                                };
+
+                                (function() {
+                                    $(".demo-page .rsbPopup_Qsf").parent().addClass("rsbSlide_Qsf");
+                                })();
+                            })();
+                        //]]>
+                    </script>
+                </div>
+
+                <qsf:LeftNavigation runat="server" ID="LeftNavigation" />
+            </div>
+            
+            <div id="skin-chooser">
+                <qsf:SkinChooser runat="server" ID="QSFSkinChooser"></qsf:SkinChooser>
+            </div>
+            <telerik:RadFormDecorator ID="FormDecorator1" runat="server" DecoratedControls="all" DecorationZoneID="main"></telerik:RadFormDecorator>
+   
+            <div id="main">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    Content
+                </asp:ContentPlaceHolder>
+				<script>
+					$(document).ready(function() {
+						$('.select2').select2();
+					});
+				</script>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="copyrights">
+                <asp:Label ID="lblCopyright" runat="server">Copyright &copy <%=DateTime.Now.Year.ToString() %></asp:Label>&nbsp;&nbsp;Version&nbsp;<asp:Label ID="lblVersion" runat="server"></asp:Label>
+            </div>
+        </div>
+    </form>
+	
+</body>
+</html>

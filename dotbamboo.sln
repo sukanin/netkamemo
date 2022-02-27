@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotBambooBLL", "DotBambooBLL\DotBambooBLL.csproj", "{757C8EB1-6E27-4C4A-A91B-7DCF3DEEC652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotBambooDAL", "DotBambooDAL\DotBambooDAL.csproj", "{352ABB61-3605-4D73-8DE4-DED124C389A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotBambooCommon", "DotBambooCommon\DotBambooCommon.csproj", "{56FFD689-6B2F-40A4-B83C-60899924F99A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameworkControls", "FrameworkControls\FrameworkControls.csproj", "{F5C44433-BADC-4121-B5CF-6BAFC272C05A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{99021171-A6F5-4F02-B441-FC5B15864B69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNewService", "MyNewService\MyNewService.csproj", "{DA483408-3FB2-479F-BDBE-14C75DCDFD0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExcel", "TestExcel\TestExcel.csproj", "{6B76929C-2EBE-42BD-B37E-02AB21AD8A34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEmail", "TestEmail\TestEmail.csproj", "{13E8E065-8783-46A4-A257-3EBFAE7BD2F1}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "netkamemo", "http://localhost/netkamemo", "{C450502B-DF0D-427F-BCDB-2CEC296FE4A4}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "false"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{757c8eb1-6e27-4c4a-a91b-7dcf3deec652}|DotBambooBLL.dll;{56FFD689-6B2F-40A4-B83C-60899924F99A}|DotBambooCommon.dll;{352ABB61-3605-4D73-8DE4-DED124C389A2}|DotBambooDAL.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/netkamemo"
+		Debug.AspNetCompiler.PhysicalPath = "DotBambooUI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\netkamemo\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/netkamemo"
+		Release.AspNetCompiler.PhysicalPath = "DotBambooUI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\netkamemo\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "DotBambooUI\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{757C8EB1-6E27-4C4A-A91B-7DCF3DEEC652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757C8EB1-6E27-4C4A-A91B-7DCF3DEEC652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757C8EB1-6E27-4C4A-A91B-7DCF3DEEC652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757C8EB1-6E27-4C4A-A91B-7DCF3DEEC652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352ABB61-3605-4D73-8DE4-DED124C389A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352ABB61-3605-4D73-8DE4-DED124C389A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352ABB61-3605-4D73-8DE4-DED124C389A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352ABB61-3605-4D73-8DE4-DED124C389A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56FFD689-6B2F-40A4-B83C-60899924F99A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56FFD689-6B2F-40A4-B83C-60899924F99A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56FFD689-6B2F-40A4-B83C-60899924F99A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56FFD689-6B2F-40A4-B83C-60899924F99A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5C44433-BADC-4121-B5CF-6BAFC272C05A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5C44433-BADC-4121-B5CF-6BAFC272C05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5C44433-BADC-4121-B5CF-6BAFC272C05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5C44433-BADC-4121-B5CF-6BAFC272C05A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99021171-A6F5-4F02-B441-FC5B15864B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99021171-A6F5-4F02-B441-FC5B15864B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99021171-A6F5-4F02-B441-FC5B15864B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99021171-A6F5-4F02-B441-FC5B15864B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA483408-3FB2-479F-BDBE-14C75DCDFD0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA483408-3FB2-479F-BDBE-14C75DCDFD0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA483408-3FB2-479F-BDBE-14C75DCDFD0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA483408-3FB2-479F-BDBE-14C75DCDFD0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B76929C-2EBE-42BD-B37E-02AB21AD8A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B76929C-2EBE-42BD-B37E-02AB21AD8A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B76929C-2EBE-42BD-B37E-02AB21AD8A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B76929C-2EBE-42BD-B37E-02AB21AD8A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E8E065-8783-46A4-A257-3EBFAE7BD2F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E8E065-8783-46A4-A257-3EBFAE7BD2F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E8E065-8783-46A4-A257-3EBFAE7BD2F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E8E065-8783-46A4-A257-3EBFAE7BD2F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C450502B-DF0D-427F-BCDB-2CEC296FE4A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C450502B-DF0D-427F-BCDB-2CEC296FE4A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C450502B-DF0D-427F-BCDB-2CEC296FE4A4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C450502B-DF0D-427F-BCDB-2CEC296FE4A4}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

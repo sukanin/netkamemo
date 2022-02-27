@@ -1,0 +1,767 @@
+//Core
+@import "components/variables";
+@import "components/mixins";
+
+//Reset
+@import "components/normalize";
+@import "components/utils";
+
+//Structural components
+@import "components/layout";
+@import "components/sidebar";
+
+// Configurator
+//@import "components/configurator";
+
+
+
+
+// Local variables
+$skins: "default", "black", "blackmetrotouch", "bootstrap", "glow", "metro", metrotouch,
+		office2007, office2010black, office2010blue, office2010silver, outlook,
+		silk, simple, sunset, telerik, vista, web20, webblue, windows7;
+
+$controls: ajax, autocompletebox,
+		barcode, binaryimage, button,
+		calendar, captcha,  htmlchart, clientdatasource, colorpicker, combobox,
+		dataform, datapager, datepicker, diagram, dock, dropdownlist, dropdowntree,
+		editor,
+		fileexplorer, filter, formdecorator,
+		gantt, gauge, grid,
+		imageeditor, imagegallery, input,
+		lightbox, listbox, listview,
+		map, mediaplayer, menu,
+		notification,
+		odatadatasource, orgchart,
+		panelbar, persistenceframework, pivotgrid, progressarea, progressbar,
+		rating, ribbonbar, rotator,
+		scheduler, searchbox, sitemap, slider, socialshare, spell, splitter, spreadprocessing,
+		tabstrip, tagcloud, ticker, tilelist, toolbar, tooltip, treelist, treemap, treeview,
+		asyncupload, cloudupload,
+		window, wizard, wordsprocessing,
+		xmlhttppanel,
+		ziplibrary,
+		pdfprocessing,
+		pagelayout,
+		clientexportmanager,
+		navigation;
+
+
+
+// Fonts
+@font-face{
+	font-family: MetricWeb-Semibold;
+	src: url(../fonts/MetricWeb-Semibold.eot);
+	src: url(../fonts/MetricWeb-Semibold.eot?) format('embedded-opentype'),
+		url(../fonts/MetricWeb-Semibold.woff) format('woff'),
+		url(../fonts/MetricWeb-Semibold.ttf) format('truetype')
+}
+@font-face{
+	font-family:FaktSlabPro-Medium;
+	src: url(../fonts/FaktSlabPro-Medium.eot);
+	src: url(../fonts/FaktSlabPro-Medium.eot?) format('embedded-opentype'),
+		url(../fonts/FaktSlabPro-Medium.woff) format('woff'),
+		url(../fonts/FaktSlabPro-Medium.ttf) format('truetype')
+}
+@font-face{
+	font-family:FaktSlabPro-Blond;
+	src: url(../fonts/FaktSlabPro-Blond.eot);
+	src: url(../fonts/FaktSlabPro-Blond.eot?) format('embedded-opentype'),
+		url(../fonts/FaktSlabPro-Blond.woff) format('woff'),
+		url(../fonts/FaktSlabPro-Blond.ttf) format('truetype')
+}
+
+
+body {
+	color: #000000;
+}
+
+
+
+// Notification bar
+.notification-bar {
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+
+
+// header
+#header {
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	.notification-bar-active & {
+		top: 60px;
+	}
+}
+
+
+
+// Middle
+#middle {
+	padding-top: 140px;
+	margin-left: 300px;
+	overflow: hidden;
+
+	.notification-bar-active & {
+		padding-top: 200px;
+	}
+}
+
+
+	#main {
+		//position: relative;
+		//z-index: 1;
+	}
+	#sidebar {
+		width: 300px;
+		box-sizing: border-box;
+		border-right: 1px solid $border-color;
+		color: #2d3e50;
+		background-color: $secondary-bg;
+		position: fixed;
+		z-index: 99999;
+		top: 80px;
+		left: 0;
+		bottom: 0;
+
+		.notification-bar-active & {
+			top: 140px;
+		}
+	}
+
+
+
+#footer {
+	margin-left: 300px;
+}
+
+
+
+
+// Skin chooser
+#skin-chooser {
+	min-height: 60px;
+	border-bottom: 1px solid $border-color;
+	color: #555555;
+	background: $secondary-bg;
+	text-align: right;
+	position: fixed;
+	z-index: 99998;
+	top: 80px;
+	left: 300px;
+	right: 0;
+
+	.notification-bar-active & {
+		top: 140px;
+	}
+
+
+	.sc-activator {
+		padding: 1em 20px;
+		outline: none;
+		color: #2d3e50;
+		line-height: 32px;
+		display: inline-block;
+		cursor: pointer;
+
+		&:after {
+			content: "";
+			margin-left: 10px;
+			width: 16px;
+			height: 16px;
+			background: url( "../Images/qsf-skin-sprite.png" ) -17px -667px no-repeat;
+			display: inline-block;
+			vertical-align: middle;
+			transition: transform 0.2s ease;
+		}
+	}
+	.sc-activator:hover {
+		background-color: #e2e4e7;
+	}
+	.sc-activator.active {
+		background-color: #ebeef0;
+
+		&:after {
+			background-position: -67px -667px;
+			transform: rotate(-180deg);
+		}
+	}
+
+
+	.animation-container {
+		height: 0;
+		overflow: hidden;
+		box-shadow: 0 15px 15px rgba(0, 0, 0, .05);
+	}
+
+
+	// Skin thumb
+	.thumb {
+		margin: 0 10px 0 0;
+		width: 36px;
+		height: 10px;
+		background: url( "../Images/skin-thumbs.png" ) 0 0 no-repeat;
+		display: inline-block;
+	}
+	$i: 0;
+	@each $skin in $skins {
+		$i: $i + 1;
+		.thumb.#{$skin} {background-position: 0 #{-$i * 10px};}
+	}
+
+}
+.skin-list {
+	padding: 25px 80px;
+	background: #ebeef0;
+	font-size: 12px;
+	line-height: 25px;
+	text-align: left;
+
+	h4 {
+		margin: 0;
+		font-size: 1em;
+		line-height: inherit;
+		text-transform: uppercase;
+	}
+}
+.skin-grid {
+	margin: 0 0 0 -10px;
+	padding: 0;
+	max-width: 900px;
+	list-style: none;
+	-webkit-columns: 5;
+	-moz-columns: 5;
+	columns: 5;
+
+	*zoom: 1;
+	&:after { content: ""; clear:both; display: block;}
+
+
+	li {
+		width: 180px;
+		display: block;
+		overflow: hidden;
+	}
+	.t-ie7 & li,
+	.t-ie8 & li,
+	.t-ie9 & li {
+		float: left;
+	}
+
+	a {
+		padding: 0 10px;
+		color: #2d3e50;
+		display: block;
+		*zoom: 1;
+	}
+	a:hover {
+		background-color: #e2e4e7;
+		text-decoration: none;
+	}
+
+}
+
+
+
+
+// Example wrapper
+#example {
+	margin-top: 40px;
+	*zoom: 1;
+}
+#example:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+
+
+
+// Demo title
+h1 {
+	margin: 0;
+	font-size: 24px;
+	font-weight: normal;
+}
+#main > h1 {
+
+	.icon {
+		margin: 0 12px 0 0;
+		width: 24px;
+		height: 24px;
+		background-image: url( "../Images/qsf-product-icons.png" );
+		background-repeat: no-repeat;
+		display: inline-block;
+		vertical-align: -3px;
+	}
+}
+$i: 0;
+@each $control in $controls {
+	.icon-rad#{$control} {background-position: 0 #{-$i * 24px};}
+	$i: $i + 1;
+}
+
+
+
+
+// Demo container
+.demo-container {
+	margin: 40px auto;
+	padding: 30px;
+	border: 1px solid #e2e4e7;
+	background-color: #f5f7f8;
+
+	*zoom: 1;
+	&:after {content: ""; clear: both; display: block; }
+
+
+	// Content
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0 0 10px 0;
+		font-size: 12px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+
+	// Demo container sizes
+	&.size-thin {max-width: 300px}
+	&.size-narrow {max-width: 500px}
+	&.size-medium {max-width: 600px}
+	&.size-wide {max-width: 800px}
+
+
+	// Demo container backgrounds
+	.background-default & {}
+	.background-black & {
+		border-color: #202020;
+		color: #ffffff;
+		background-color: #202020;
+
+		h2, h3, h4 { color: inherit }
+	}
+	.background-blackmetrotouch & {
+		border-color: #000000;
+		color: #ffffff;
+		background-color: #000000;
+
+		h2, h3, h4 { color: inherit }
+	}
+	.background-glow & {
+		border-color: #29343b;
+		color: #ffffff;
+		background-color: #29343b;
+
+		h2, h3, h4 { color: inherit }
+	}
+	.background-metro & {
+		background-color: #ffffff;
+	}
+	.background-metrotouch & {
+		background-color: #ffffff;
+	}
+	.background-office2007 & {}
+	.background-office2010black & {
+		border-color: #6f6f6f;
+		background-color: #6f6f6f;
+	}
+	.background-office2010blue & {}
+	.background-office2010silver & {
+		background-color: #dbdfe4;
+	}
+	.background-outlook & {}
+	.background-silk & {
+		background-color: #f3f3f3;
+	}
+	.background-simple & {}
+	.background-sunset & {}
+	.background-telerik & {}
+	.background-vista & {}
+	.background-web20 & {}
+	.background-webblue & {}
+	.background-windows7 & {}
+
+	&.no-bg {
+		padding: 0;
+		border-width: 0;
+		color: inherit;
+		background-color: transparent;
+	}
+
+}
+.demo-containers {
+	text-align: center;
+
+	.demo-container {
+		text-align: left;
+		display: inline-block;
+		vertical-align: top;
+		*zoom: 1;
+		*display: inline;
+	}
+}
+
+
+
+
+// Configurator
+.configurator {
+	color: #555555;
+
+
+	// Nav
+	.nav-simple {
+		font-size: 13px;
+		font-weight: bold;
+	}
+	.nav-simple li {
+		padding: 0 20px;
+	}
+	.nav-simple li:first-child {padding-left: 0}
+	.nav-simple a {
+		padding: .25em 0;
+	}
+
+
+	// Fieldsets
+	fieldset {
+		margin: 0;
+		padding: 1em 0 0 0;
+		border-width: 0;
+	}
+	legend {
+		padding: 0;
+		font-size: 12px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+
+	// Columns
+	.col {
+		margin-bottom: 40px;
+		margin-right: 80px;
+		box-sizing: content-box;
+	}
+	.col-auto {
+		margin-right: 0;
+	}
+	.col-wide { width: 500px; margin-right: 0; }
+	.col-medium { width: 300px; }
+	.col-narrow { width: 200px; }
+
+
+	// Hack for rad controls
+	& {
+
+		// All controls
+		.RadInput,
+		.RadComboBox,
+		.RadDropDownList,
+		.RadPicker {
+			color: inherit;
+			font-family: inherit;
+		}
+
+
+		// Labels
+		span.label,
+		label.riLabel,
+		label.rcbLabel {
+			margin: 0;
+			padding: 0 0 2px;
+			width: auto;
+			color: inherit;
+			font: inherit;
+			display: block;
+		}
+
+	}
+
+}
+
+
+
+
+// Demo source
+#demo-source {
+
+	// Tabs
+	.tabs {}
+
+
+	// Toolbar
+	.toolbar {
+		border-width: 0 0 1px;
+	}
+
+
+	// Isolate demo
+	#isolate-demo {
+		position: absolute;
+		z-index: 1;
+		top: .75em;
+		right: 0;
+	}
+
+
+	// Copy to clipboard
+	.copy-to-clipboard {
+		width: 52px;
+		height: 52px;
+		border-left: 1px solid #e2e4e7;
+		text-align: center;
+		cursor: pointer;
+		position: absolute;
+		top: 50px;
+		right: 0;
+	}
+	.copy-to-clipboard:hover {
+		background-color: #e2e4e7;
+	}
+	.copy-to-clipboard .icon {
+		margin: 14px 0 0;
+		width: 26px;
+		height: 26px;
+		background-position: -13px -1212px;
+	}
+
+}
+
+
+
+
+// About this demo
+#about-demo-wrapper {}
+#about-demo-wrapper:before {
+	content: "";
+	height: 7px;
+	border-bottom: 1px solid #e2e4e7;
+	background-color: #f5f7f8;
+	display: block;
+}
+#about-demo-wrapper pre {
+	overflow: auto;
+}
+#about-demo-wrapper p.more {
+	margin: 30px 0 0;
+}
+
+
+
+
+// Demo Qr Code
+.demo-qr-code {
+	margin: 0 0 20px 20px;
+	width: 180px;
+	font-size: 13px;
+	float: right;
+
+	.link {
+		padding: 5px;
+		border: 1px solid #e2e4e7;
+		color: #555555;
+		background-color: #ffffff;
+		text-align: center;
+		display: block;
+	}
+	.link:hover {
+		border-color: #0487c4;
+		text-decoration: none;
+	}
+
+	.img {
+		margin: 0 auto 10px;
+		display: block;
+	}
+
+	.desc {
+		display: block;
+	}
+
+}
+
+
+
+
+// Event log
+.event-log {
+	height: 200px;
+
+	.console-button {
+		width: 53px;
+		height: 100%;
+		border-left: 1px solid #e2e4e7;
+		text-align: center;
+		display: inline-block;
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.console-button:hover {
+		background-color: #e2e4e7;
+	}
+	.console-button .icon {
+		margin: 14px 0 0;
+		width: 24px;
+		height: 24px;
+		background-position: -13px -1163px;
+	}
+
+	.list-group {
+		height: 149px;
+		overflow: auto;
+	}
+}
+
+
+
+
+// See also
+#see-also {
+	color: #555555;
+	background-color: #f5f7f8;
+
+	h4 {
+		margin-top: 0;
+	}
+	p {
+		margin: 10px 0;
+	}
+
+
+	// Columns
+	.col {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	.col:first-child { padding-left: 0; }
+	.col:last-child { padding-right: 0; }
+
+
+	// Fix some IE7 stuff
+	* + html & {
+		.columns-border {
+			width: auto;
+		}
+		.col {
+			width: 30%;
+			padding: 0 2%;
+		}
+	}
+}
+
+
+
+
+// Flat page: for QA testing
+.flat-page {
+
+	#header {
+		position: relative;
+		z-index: 1;
+	}
+	#middle {
+		padding: 0;
+		overflow: visible;
+	}
+	#sidebar {
+		margin: 0 0 0 -300px;
+		float: left;
+		position: relative;
+		z-index: 1;
+		top: 0;
+	}
+	#skin-chooser {
+		position: relative;
+		z-index: 1;
+		top: 0;
+		left: 0;
+	}
+}
+
+
+
+// Responsive
+@media only screen and (min-width: 0) {}
+
+
+@media only screen and (min-width: 1651px) {}
+
+
+@media only screen and (min-width: 1367px) and (max-width: 1650px) {
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1366px) {}
+
+@media only screen and (max-width: 1199px ) {
+	#middle,
+	#footer {
+		margin-left: 0;
+	}
+	#skin-chooser {
+		left: 0;
+	}
+
+	#sidebar {
+		margin-left: -300px;
+		box-shadow: 15px 0 15px rgba(0, 0, 0, 0.05)
+	}
+	#sidebar > .toggler {
+		display: block;
+	}
+	#nav .treeview li li ul {
+		font-size: 14px;
+	}
+	#nav .treeview .rtIn {
+		line-height: 2;
+	}
+
+	// Skin chooser
+	.skin-grid {
+		width: auto;
+		-moz-columns: 4;
+		-webkit-columns: 4;
+		columns: 4;
+	}
+	.skin-grid li {
+		width: auto;
+	}
+
+	#demo-source #isolate-demo {
+		display: none;
+	}
+
+}
+
+@media only screen and (max-width: 899px ) {
+
+	// Skin chooser
+	.skin-grid {
+		-moz-columns: 3;
+		-webkit-columns: 3;
+		columns: 3;
+	}
+
+}
+
+@media only screen and (max-width: 719px ) {
+
+	// Skin chooser
+	.skin-grid {
+		-moz-columns: 2;
+		-webkit-columns: 2;
+		columns: 2;
+	}
+
+}

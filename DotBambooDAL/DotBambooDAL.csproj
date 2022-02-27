@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{352ABB61-3605-4D73-8DE4-DED124C389A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotBambooDAL</RootNamespace>
+    <AssemblyName>DotBambooDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Devart.Data, Version=5.0.1436.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.Linq, Version=4.5.981.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.MySql, Version=8.5.644.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.MySql.Linq, Version=4.5.981.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomizedEntities.cs" />
+    <Compile Include="DotBamboo1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DotBamboo.lqml</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\AccountCodeData.cs" />
+    <Compile Include="Framework\AuditData.cs" />
+    <Compile Include="Framework\AuditObjectData.cs" />
+    <Compile Include="Framework\AuditObjectPropertyData.cs" />
+    <Compile Include="Framework\BaseData.cs" />
+    <Compile Include="Framework\BaseQueryData.cs" />
+    <Compile Include="Framework\BomMasterData.cs" />
+    <Compile Include="Framework\CapabilityData.cs" />
+    <Compile Include="Framework\CostCenterData.cs" />
+    <Compile Include="Framework\DBHelper.cs" />
+    <Compile Include="Framework\DuplicateCheck.cs" />
+    <Compile Include="Framework\EmailData.cs" />
+    <Compile Include="Framework\GoodsRecData.cs" />
+    <Compile Include="Framework\GoodsReceivedData.cs" />
+    <Compile Include="Framework\IBaseEntity.cs" />
+    <Compile Include="Framework\ItemMasterData.cs" />
+    <Compile Include="Framework\MemoData.cs" />
+    <Compile Include="Framework\MenuItemData.cs" />
+    <Compile Include="Framework\NotificationData.cs" />
+    <Compile Include="Framework\OnHandCheck.cs" />
+    <Compile Include="Framework\MemoAttachmentData.cs" />
+    <Compile Include="Framework\PurchaseAttachmentData.cs" />
+    <Compile Include="Framework\PurchaseData.cs" />
+    <Compile Include="Framework\PurchaseForecastAttachmentData.cs" />
+    <Compile Include="Framework\PurchaseItemData.cs" />
+    <Compile Include="Framework\PurchaseTodoData.cs" />
+    <Compile Include="Framework\RelationMasterData.cs" />
+    <Compile Include="Framework\RoleCapabilityData.cs" />
+    <Compile Include="Framework\RoleData.cs" />
+    <Compile Include="Framework\RoleUserAccountData.cs" />
+    <Compile Include="Framework\UserAccountData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\CartonReportResult.cs" />
+    <Compile Include="Reports\MkctReportResult.cs" />
+    <Compile Include="Reports\SupplierEvaluationResult.cs" />
+    <Compile Include="Reports\ToolingAmortizeResult.cs" />
+    <Compile Include="Reports\ToolingReportResult.cs" />
+    <Compile Include="Reports\ReportResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DotBamboo.Diagram1.view">
+      <DependentUpon>DotBamboo.lqml</DependentUpon>
+    </None>
+    <None Include="DotBamboo.edps">
+      <DependentUpon>DotBamboo.lqml</DependentUpon>
+    </None>
+    <None Include="DotBamboo.lqml">
+      <Generator>DevartLinqToSqlGenerator</Generator>
+      <LastGenOutput>DotBamboo1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotBambooCommon\DotBambooCommon.csproj">
+      <Project>{56ffd689-6b2f-40a4-b83c-60899924f99a}</Project>
+      <Name>DotBambooCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,868 @@
+﻿// Variables
+$input-border: #d5dade;
+$input-color: #2d3e50;
+$input-bg: #ffffff;
+$input-hovered-border: null;
+$input-hovered-color: #000000;
+$input-hovered-bg: null;
+$input-focused-border: #aeb4b9;
+$input-focused-color: null;
+$input-focused-bg: null;
+
+
+$button-border: #d5dade;
+$button-color: #2d3e50;
+$button-bg: null;
+$button-hovered-border: null;
+$button-hovered-color: #000000;
+$button-hovered-bg: #f0f1f3;
+$button-pressed-border: null;
+$button-pressed-color: #000000;
+$button-pressed-bg: #e2e4e7;
+
+
+$popup-border: #e0e2e5;
+$popup-color: #2d3e50;
+$popup-bg: #ffffff;
+$popup-shadow: 0 0 10px rgba( 0, 0, 0, .15 );
+$list-item-hovered-color: #000000;
+$list-item-hovered-bg: #f0f1f3;
+$list-item-selected-color: #000000;
+$list-item-selected-bg: #e2e4e7;
+
+
+
+
+// RadInput
+span.RadInput_Qsf {
+
+	&.riContSpinButtons,
+	.riContentWrapper {
+		padding: 0;
+		display: block;
+		position: relative;
+	}
+
+
+	// Textbox
+	.riTextBox {
+		height: 36px;
+		border-color: $input-border;
+		color: $input-color;
+		background-color: $input-bg;
+		font-family: inherit;
+		font-size: 16px;
+	}
+	.riFocused {
+		border-color: $input-focused-border;
+	}
+	.riError {
+		border-color: #ef470a;
+		border-left-width: 6px;
+	}
+	.riDisabled {
+		opacity: .5;
+	}
+
+		// ie7 / ie8 goodness
+		.t-ie7 & .riTextBox {
+			height: 31px;
+			line-height: 31px;
+		}
+		.t-ie8 & .riTextBox {
+			line-height: 30px;
+		}
+
+		// override
+		.riTextBox.riError {
+			border-left-width: 6px;
+		}
+		.riTextBox.riDisabled:disabled {
+			opacity: .5;
+		}
+
+
+	// Numeric
+	&.riContSpinButtons .riUp,
+	&.riContSpinButtons .riDown {
+		margin: 0;
+		width: 28px;
+		height: 16px;
+		border: 1px solid transparent;
+		background-image: url( "../Images/qsf-skin-sprite.png" );
+		background-repeat: no-repeat;
+		position: absolute;
+		right: 0;
+
+		&:hover {
+			border-color: $button-border;
+			background-color: $button-hovered-bg;
+		}
+		&:active {
+			background-color: $button-pressed-bg;
+		}
+	}
+		&.riContSpinButtons .riUp {
+			background-position: -11px -217px;
+			top: 0;
+		}
+		&.riContSpinButtons .riUp:hover {
+			background-position: -61px -217px
+		}
+		&.riContSpinButtons .riDown {
+			background-position: -11px -267px;
+			bottom: 0;
+		}
+		&.riContSpinButtons .riDown:hover {
+			background-position: -61px -267px;
+		}
+	&.riContSpinButtons .riTextBox[type="text"] {
+		padding-right: 35px;
+	}
+	.riDisabled ~ .riUp,
+	.riDisabled ~ .riDown {
+		pointer-events: none;
+	}
+
+}
+
+
+
+// RadComboBox
+div.RadComboBox_Qsf {
+
+	table td.rcbInputCell,
+	table td.rcbArrowCell {
+		border: 1px solid $input-border;
+	}
+		table td.rcbInputCell {border-right-width: 0;}
+		table td.rcbArrowCell {border-left-color: transparent;}
+
+
+	.rcbInputCell {
+		color: $input-color;
+		background-color: $input-bg;
+	}
+	.rcbInputCell .rcbInput {
+		font-family: inherit;
+		font-size: 16px;
+	}
+	.rcbArrowCell {
+		width: 28px;
+		background-color: $input-bg;
+	}
+	.rcbArrowCell a {
+		width: 28px;
+		height: 34px;
+		background: url( "../Images/qsf-skin-sprite.png" ) -11px -58px no-repeat;
+	}
+
+
+	.rcbHovered .rcbInputCell {
+		color: $input-hovered-color;
+	}
+	.rcbHovered .rcbArrowCell {
+		border-color: $button-border;
+		background-color: $button-hovered-bg;
+	}
+	.rcbHovered .rcbArrowCell a {
+		background-position: -61px -58px;
+	}
+
+
+	.rcbFocused .rcbInputCell {}
+	.rcbFocused .rcbArrowCell {
+		border-color: $button-border;
+		background-color: $button-pressed-bg;
+	}
+
+}
+div.RadComboBoxDropDown_Qsf {
+	border-color: $popup-border;
+	color: $popup-color;
+	background-color: $popup-bg;
+	box-shadow: $popup-shadow;
+	line-height: 24px;
+
+
+	.rcbHovered {
+		color: #000000;
+		background-color: #f0f1f3
+	}
+	.rcbSelected {
+		background-color: #f0f1f3
+	}
+}
+
+
+
+
+// RadDripDownList
+div.RadDropDownList_Qsf {
+
+	.rddlInner {
+		border-color: $button-border;
+		color: $button-color;
+		background-color: $input-bg;
+		padding-right: 32px;
+	}
+	.rddlHovered {
+		color: $button-hovered-color;
+		background-color: $button-hovered-bg;
+	}
+	.rddlFocused {
+		background-color: $button-pressed-bg;
+	}
+
+	.rddlFakeInput {
+		height: 30px;
+		font-size: 16px;
+		line-height: 30px;
+	}
+	.rddlIcon {
+		width: 28px;
+		height: 34px;
+		background: url( "../Images/qsf-skin-sprite.png" ) -11px -58px no-repeat;
+	}
+
+}
+div.rddlPopup_Qsf {
+	border-color: $popup-border;
+	color: $popup-color;
+	background-color: $popup-bg;
+	line-height: 24px;
+	box-shadow: 0 0 10px rgba( 0, 0, 0, .15 );
+
+
+	.rddlItemHovered {
+		color: $list-item-hovered-color;
+		background-color: $list-item-hovered-bg;
+	}
+	.rddlItemHovered .rddlIcon {
+		background-position: -61px -58px;
+	}
+	.rddlItemSelected {
+		background-color: $list-item-hovered-bg;
+	}
+}
+.rddlPopup.rddlPopup_Qsf {
+	padding: 0;
+}
+
+
+
+
+// Searchbox
+div.RadSearchBox_Qsf {
+	width: auto;
+	display: block;
+
+
+	.rsbInner {
+		border-color: $input-border;
+		background-color: $input-bg;
+	}
+
+
+	.rsbInput {
+		padding: 0 6px;
+		height: auto;
+		color: $input-color;
+		display: inline-block;
+		font-style: normal;
+		vertical-align: middle;
+	}
+	.rsbEmptyMessage {
+		color: #aaaaaa;
+		font-style: normal;
+	}
+
+
+	.rsbButton {
+		vertical-align: middle;
+		font: inherit;
+	}
+	.rsbButtonSearch {
+		margin: 0;
+		width: 2em;
+		height: 2em;
+	}
+	.rsbIconSearch {
+		background-image: url( "../Images/qsf-skin-sprite.png" );
+		background-position: -17px -1117px;
+	}
+	.rsbButtonSearch:hover .rsbIconSearch {
+		background-position: -67px -1117px;
+	}
+
+}
+div.rsbPopup_Qsf {
+	padding: 0;
+	border-color: $popup-border;
+	color: $popup-color;
+	background-color: $popup-bg;
+	background-color: #f5f7f8;
+	box-shadow: $popup-shadow;
+	font-size: 13px;
+	line-height: 24px;
+
+
+	.rsbList {
+		max-height: 300px;
+	}
+	li.rsbListItem {
+		padding: 2px 5px 2px 160px;
+	}
+	.rsbListItemHovered {
+		color: $list-item-hovered-color;
+		background-color: $list-item-hovered-bg;
+		background-color: #cad0d6;
+	}
+
+
+	.control-name {
+		margin-left: -155px;
+		width: 150px;
+		float: left;
+	}
+	.demo-name {
+		font-weight: bold;
+		display: block;
+	}
+
+}
+div.rsbPopup_Qsf {
+}
+
+
+
+
+// Pickers
+div.RadPicker_Qsf {
+	position: relative;
+
+	.rcTable {
+		border-spacing: 0;
+		table-layout: fixed;
+	}
+	.rcTable td {
+		width: 35px;
+		vertical-align: bottom;
+		position: relative;
+		z-index: 1;
+	}
+	.rcTable .rcInputCell {
+		width: 100%;
+	}
+	.rcTable .rcInputCell .riTextBox {
+		border-right-color: transparent;
+	}
+
+
+	.rcCalPopup,
+	.rcTimePopup {
+		margin: 0 0 0 -1px;
+		width: 34px;
+		height: 34px;
+		border: 1px solid $button-border;
+		border-left-color: transparent;
+		background-color: $input-bg;
+		background-image: url( "../Images/qsf-skin-sprite.png" );
+		background-repeat: no-repeat;
+	}
+	.rcCalPopup:hover,
+	.rcTimePopup:hover {
+		background-color: $button-hovered-bg;
+		border-color: $button-border;
+	}
+	.rcCalPopup:active,
+	.rcTimePopup:active {
+		background-color: $button-pressed-bg;
+	}
+	.rcCalPopup {background-position: -8px -1009px;}
+	.rcCalPopup:hover {background-position: -58px -1009px;}
+	.rcTimePopup {background-position: -8px -1059px;}
+	.rcTimePopup:hover {background-position: -58px -1059px;}
+
+}
+table.RadCalendarTimeView_Qsf {
+	border-color: $popup-border;
+	color: $popup-color;
+	background-color: $popup-bg;
+	box-shadow: $popup-shadow;
+	line-height: 20px;
+
+
+	// Header
+	.rcHeader {
+		padding: 8px 15px;
+		border-bottom: 1px solid $popup-border;
+		background-color: #f5f7f8;
+	}
+
+
+	// Cells
+	td,
+	.rcHover {
+		padding: 0;
+		border-color: $popup-border;
+		text-align: left;
+	}
+	a {
+		padding: 8px 15px;
+		border-width: 0;
+		color: $popup-color;
+		text-align: left;
+	}
+	.rcHover a {
+		padding: 8px 15px;
+		border-width: 0;
+		color: $list-item-hovered-color;
+		background-color: $list-item-hovered-bg;
+		text-decoration: none;
+	}
+	.rcSelected a {
+		padding: 8px 15px;
+		border-width: 0;
+		color: $list-item-selected-color;
+		background-color: $list-item-selected-bg;
+		text-decoration: none;
+	}
+}
+table.RadCalendar_Qsf {
+	border-color: $popup-border;
+	color: $popup-color;
+	background-color: $popup-bg;
+	box-shadow: $popup-shadow;
+	line-height: 20px;
+
+
+	// header
+	.rcTitlebar {
+		border-color: $popup-border;
+		background-color: #f5f7f8;
+	}
+	.rcTitlebar td {
+		padding: 8px;
+		white-space: nowrap;
+	}
+	.rcTitlebar .rcPrev,
+	.rcTitlebar .rcNext,
+	.rcTitlebar .rcFastPrev,
+	.rcTitlebar .rcFastNext {
+		margin: 0;
+		width: 31px;
+		height: 31px;
+		border-radius: 16px;
+		background-image: url( "../Images/qsf-skin-sprite.png" );
+	}
+	.rcTitlebar a:hover {
+		background-color: $list-item-selected-bg;
+	}
+	.rcTitlebar .rcPrev { background-position: -10px -110px }
+	.rcTitlebar .rcPrev:hover { background-position: -60px -110px }
+	.rcTitlebar .rcNext { background-position: -8px -160px }
+	.rcTitlebar .rcNext:hover { background-position: -58px -160px }
+	.rcTitlebar .rcFastPrev { background-position: -10px -910px }
+	.rcTitlebar .rcFastPrev:hover { background-position: -60px -910px }
+	.rcTitlebar .rcFastNext { background-position: -8px -960px }
+	.rcTitlebar .rcFastNext:hover { background-position: -58px -960px }
+
+
+	// main
+	.rcMain {
+		padding: 10px;
+		border-color: $popup-border;
+	}
+	.rcMainTable {
+		border-collapse: collapse;
+	}
+	.rcRow td,
+	.rcWeek th {
+		border-color: transparent;
+		padding: 0;
+		text-align: center;
+	}
+	.rcMain .rcRow td a,
+	.rcMain .rcWeek th a {
+		padding: 8px 5px;
+	}
+
+	a {
+		color: $popup-color;
+	}
+	.rcHover a {
+		color: $list-item-hovered-color;
+		background-color: $list-item-hovered-bg;
+	}
+	.rcSelected a {
+		color: $list-item-selected-color;
+		background-color: $list-item-selected-bg;
+	}
+	.rcToday a {
+		background-color: #cad0d6;
+	}
+}
+
+
+
+
+// Color picker
+div.RadColorPicker_Qsf {
+	width: 71px;
+	font-size: 1em;
+
+	.rcpIcon {width: 71px; height: 36px;}
+
+	.rcpIcon a {
+		width: 69px;
+		height: 34px;
+		border: 1px solid $button-border;
+		background: $input-bg url("../Images/qsf-skin-sprite.png") 27px -58px;
+	}
+	.rcpIcon a:hover {
+		background-color: $button-hovered-bg;
+		background-position:  27px -58px;
+	}
+	.rcpIcon a:active,
+	.rcpIcon a:focus {
+		background-color: $button-hovered-bg;
+		background-position:  27px -58px;
+	}
+
+	.rcpIcon em {
+		margin: 0;
+		width: 34px;
+		height: 34px;
+		border-right: 1px solid $button-border;
+		top: 1px;
+		left: 1px;
+		z-index: 10;
+	}
+
+
+	&.rcpDisabled {
+		opacity: .5;
+		pointer-events: none;
+	}
+}
+div.RadColorPicker_Qsf .rcpPalette {
+	margin: 0 0 0 -11px;
+	padding: 0;
+	width: 300px !important;
+	box-sizing: border-box;
+	border: 1px solid $popup-border;
+	color: $popup-color;
+	background-color: $popup-bg;
+	box-shadow: 0 0 10px rgba( 0, 0, 0, .15 );
+
+
+	// Header
+	.rcpHeader {
+		padding: 10px;
+		border-bottom: 1px solid $popup-border;
+		background-color: #f5f7f8;
+		position: relative;
+	}
+	.rcpHeader .rcpColorPreview {
+		margin-right: -1px;
+		width: 69px;
+		height: 34px;
+		border-color: $input-border;
+	}
+	.rcpHeader .rcpHexInput {
+		padding: 0 10px;
+		width: 104px;
+		height: 34px;
+		border-color: $input-border;
+		color: $input-color;
+		background-color: $input-bg;
+		font-size: 1em;
+		font-family: Arial, sans-serif;
+		line-height: 34px;
+	}
+	.rcpHeader .rcpApplyButton {
+		padding: 0 10px;
+		margin: 0;
+		height: 34px;
+		border: 1px solid $button-border;
+		background-color: $input-bg;
+		font-size: 1em;
+		font-family: inherit;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
+	.rcpHeader .rcpApplyButton:hover {
+		text-decoration: none;
+	}
+	.rcpHeader .rcpApplyButton span {
+		padding: 0;
+		display: inline;
+		line-height: 34px;
+	}
+	.rcpHeader .rcpImageButton {
+		display: none;
+	}
+
+
+	// Views
+	.rcpViews {
+		padding: 10px;
+	}
+	.rcpHsvPageView {
+		padding: 0;
+	}
+	.rcpHsvPageView .rcpMillionColorsPalette {
+		width: 250px;
+		height: 160px;
+		border-color: $popup-border;
+		background-size: 100%;
+	}
+	.rcpHsvPageView .rcpMillionColorsHandle {
+		width: 8px !important;
+		height: 8px !important;
+		border: 2px solid $popup-bg;
+		box-shadow: 0 0 1px #444444, inset 0 0 1px #444444;
+	}
+	.rcpHsvPageView .rcpInputsWrapper {
+		display: none;
+	}
+	.rcpHsvPageView .rcpMillionColorsSlider {
+		margin: 0 0 0 10px;
+		width: 16px !important;
+
+		.rslTrack {
+			width: 14px !important;
+			border-color: $popup-border;
+			background-repeat: repeat-x;
+			left: 0;
+		}
+		.rslSelectedregion {
+			width: 14px !important;
+		}
+
+		.rslDraghandle {
+			margin: 0 0 0 -2px;
+			padding: 0;
+			width: 16px;
+			height: 7px;
+			border: 1px solid $popup-border;
+			box-shadow: 0 0 1px $popup-border;
+		}
+		.rslDraghandle span {
+			width: 14px;
+			height: 5px;
+			border: 1px solid $popup-bg;
+			box-shadow: inset 0 0 0 1px $popup-border;
+		}
+	}
+
+
+	// Hide
+	.rcpRoundedRight,
+	.rcpRoundedBottomRight,
+	.rcpRoundedBottomLeft,
+	.rcpRightShadow,
+	.rcpCornerShadow,
+	.rcpBottomShadow { display: none; }
+}
+div.RadColorPicker.fb-size-narrow {width: 87px;}
+div.RadColorPicker.fb-size-medium {width: 140px;}
+div.RadColorPicker.fb-size-wide {width: 193px;}
+
+
+
+
+// Toolbar
+div.RadToolBar_Qsf {
+	padding: 1em 0;
+	border: 1px solid #e2e4e7;
+	border-width: 0 0 1px 0;
+	background: #f5f7f8;
+	font-size: 13px;
+	font-weight: bold;
+	display: block;
+
+	.rtbOuter,
+	.rtbMiddle,
+	.rtbInner {
+		padding: 0;
+		border: 0;
+	}
+
+	.rtbItem {
+		margin: 0;
+		border-left: 1px solid #e2e4e7;
+		color: #0487c4;
+	}
+	.rtbItem:first-child {border-left: 0;}
+	.rtbItemHovered {color: #036c9c;}
+	.rtbItemSelected,
+	.rtbDropDownExpanded {color: #000000;}
+
+	.rtbWrap {
+		padding: .25em 20px;
+	}
+
+	.rtbOut,
+	.rtbMid,
+	.rtbIn,
+	.rtbText {
+		padding: 0;
+		overflow: visible;
+	}
+
+	.rtbChoiceArrow {
+		padding: 0;
+		margin: 0 -8px 0 8px;
+		width: 16px;
+		height: 16px;
+		background: url( "../Images/qsf-skin-sprite.png" ) -17px -667px no-repeat;
+	}
+	.rtbItemHovered .rtbChoiceArrow,
+	.rtbDropDownExpanded .rtbChoiceArrow { background-position: -67px -667px }
+
+}
+div.RadToolBarDropDown_Qsf {
+	margin-top: 1em;
+	padding: .5em 0;
+	border-color: #f5f7f8 #e2e4e7 #e2e4e7;
+	color: #2d3e50;
+	background-color: #f5f7f8;
+	font-size: 13px;
+
+	.rtbItemHovered {
+		background-color: #e2e4e7;
+	}
+	.rtbWrap {
+		padding: .25em 20px;
+	}
+}
+
+
+
+
+// Tabstrip
+div.RadTabStrip_Qsf {
+
+	.rtsUL {
+		overflow: visible;
+		float: none;
+		display: block;
+	}
+	.rtsLI {
+		margin-bottom: -1px;
+		min-width: 150px;
+	}
+	.rtsLI + .rtsLI {
+		margin-left: -1px;
+	}
+	.rtsLink {
+		padding: 1em 20px;
+		border: 1px solid #e2e4e7;
+		outline: 0;
+		background: #ffffff;
+		font-weight: bold;
+		display: block;
+		cursor: pointer;
+	}
+	.rtsLink span {
+		padding: 0;
+	}
+	.rtsLink.rtsSelected {
+		border-bottom-color: #f5f7f8;
+		color: #000000;
+		background: #f5f7f8;
+	}
+}
+
+
+
+
+
+// Button
+span.RadButton.RadButton_Qsf {
+	padding: 0;
+	min-height: 0;
+	border: 0;
+	border-radius: 0;
+	font-size: 14px;
+	line-height: 1;
+	font-family: inherit;
+	font-weight: bold;
+}
+span.RadButton_Qsf .rbText {
+	padding: 10px 20px;
+	width: auto !Important;
+	border: 1px solid #0487c4;
+	border-radius: 2px;
+	color: #ffffff;
+	background-color: #0487c4;
+	display: block;
+}
+span.RadButton_Qsf:hover .rbText {
+	border-color: #036c9c;
+	background-color: #036c9c;
+}
+
+
+
+
+// Slider
+div.RadSlider_Qsf {
+
+
+	// Buttons
+	.rslHorizontal a.rslHandle {
+		width: 36px;
+		height: 36px;
+		border: 0;
+	}
+	.rslHandle span {
+		width: 36px;
+		height: 36px;
+		background-image: url( "../images/qsf-skin-sprite.png" );
+		background-repeat: no-repeat;
+	}
+	.rslDecrease span { background-position: -8px -108px; }
+	.rslDecrease:hover span { background-position: -58px -108px; }
+	.rslIncrease span { background-position: -8px -158px; }
+	.rslIncrease:hover span { background-position: -58px -158px; }
+
+
+	// Track
+	.rslHorizontal .rslTrack {
+		width: auto !important;
+		height: 7px;
+		border-width: 0;
+		background-color: #e0e2e5;
+		top: 14px;
+		left: 45px;
+		right: 45px;
+	}
+	.rslHorizontal .rslSelectedregion {
+		height: 7px;
+		background-color: #0487c4;
+	}
+
+
+	// Drag handle
+	.rslHorizontal a.rslDraghandle {
+		margin-top: -6px;
+		width: 11px;
+		height: 11px;
+		border: 4px solid #ffffff;
+		border-radius: 20px;
+		box-shadow: 0 0 2px #818692;
+		background-color: #0487c4;
+	}
+	.rslHorizontal a.rslDraghandle:hover {
+		background-color: #005880;
+	}
+	.rslDraghandle span {
+		display: none !important;
+	}
+
+
+}

@@ -1,0 +1,84 @@
+//Variables
+
+
+/*
+* All common QSF variables are declared in this file.
+*/
+
+/*
+* SASS Files organization convention
+*
+* - Provide a description for each file, basicly what it does.
+*
+* - Name each section with comments like this:
+*
+* //== Section_Name
+* //
+* //## [Section description]
+*
+* - Leave TWO lines of empty space before each section comment and ONE lines after it
+*/
+
+
+/*
+* Variable name convention
+*
+* $[element]-[state]-[property]-[hint value]
+* example1: $btn-hover-bg -- ([element : btn]-[state : hover]-[property : bg])
+* example2: $font-size-sm -- ([property: font-size]-[hint value: sm])
+*
+*/
+
+
+//== Colors
+//
+//## Main QSF text and background colors
+
+$primary-bg:					#ffffff;
+$secondary-bg:					#f3f5f7;
+$ternary-bg:					#2a2d33;
+
+$border-color: #e2e4e7;
+
+
+$text-primary-color:			#000000;
+$text-secondary-color:			#555555;
+$text-ternary-color:			#2d3e50;
+
+$link-primary-color:			#0487c4;
+$link-secondary-color:			#ffffff;
+$link-ternary-color:			#818692;
+$link-hover-color:				#036c9c;
+$link-secondary-hover-color:	#49c3fb;
+
+
+//== Typography
+//
+//## QSF Typography
+
+$font-family: Arial, Helvetica, sans-serif;
+
+$font-size-xs:	10px;
+$font-size-sm:	12px;
+$font-size-md:	13px;
+$font-size-lg:	16px;
+$font-size-xl:	25px;
+
+
+//== Buttons
+//
+//## QSF Buttons
+
+$btn-default-bg:		#2a2d33;
+$btn-default-hover-bg:	#505156;
+$btn-primary-bg:		#ee5315;
+$btn-primary-hover-bg:	#c2410e;
+
+
+//== SearchBox
+//
+//##
+
+$sb-bg:			#f5f7f8;
+$sb-hover-bg:	#cad0d6;
+
