@@ -186,7 +186,7 @@
                         <label>By: <asp:TextBox ID="Approver1ConfirmBy" runat="server" ></asp:TextBox></label> <asp:HiddenField ID="Approver1ConfirmByID" runat="server" />
                     </td>
                     <td>
-                        <asp:Button ID="SelectApprover1" runat="server" OnClientClick="Approver1PopUp();return false;" Text="Select Reviewer"></asp:Button>
+                        <asp:Button ID="SelectApprover1" runat="server" OnClientClick="Approver1PopUp();return false;" Text="Select User"></asp:Button>
                     </td>
                     <td></td>
                 </tr>
@@ -219,7 +219,7 @@
                         <label>By: <asp:TextBox ID="Approver2ConfirmBy" runat="server" ></asp:TextBox></label> <asp:HiddenField ID="Approver2ConfirmByID" runat="server" />
                     </td>
                     <td>
-                        <asp:Button ID="SelectApprover2" runat="server" OnClientClick="Approver2PopUp();return false;" Text="Select Reviewer"></asp:Button>
+                        <asp:Button ID="SelectApprover2" runat="server" OnClientClick="Approver2PopUp();return false;" Text="Select User"></asp:Button>
                     </td>
                     <td></td>
                 </tr>
@@ -253,7 +253,7 @@
                         <label>By: <asp:TextBox  ID="Approver3ConfirmBy" runat="server"></asp:TextBox></label> <asp:HiddenField ID="Approver3ConfirmByID" runat="server" />
                     </td>
                     <td>
-                        <asp:Button ID="SelectApprover3" runat="server" OnClientClick="Approver3PopUp();return false;" Text="Select Reviewer"></asp:Button>
+                        <asp:Button ID="SelectApprover3" runat="server" OnClientClick="Approver3PopUp();return false;" Text="Select User"></asp:Button>
                     </td>
                     <td></td>
                 </tr>
