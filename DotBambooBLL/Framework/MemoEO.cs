@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 namespace DotBambooBLL.Framework
 {
@@ -542,6 +543,17 @@ namespace DotBambooBLL.Framework
                 throw new Exception("DBAction not save.");
             }
 		}
+
+        private bool ValidateEmail(string mail)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(mail);
+            if (!match.Success)
+            {
+                return false;
+            }
+            return true;
+        }
 		
 		protected override void Validate(DotBambooDAL.DotBambooDataContext db, ref ValidationErrors validationErrors)
         {
@@ -558,6 +570,18 @@ namespace DotBambooBLL.Framework
             if (Approver1confirmBy <= 0)
             {
                 validationErrors.Add("Approver 1 can't be blank.");
+            }
+
+            if (!string.IsNullOrEmpty(EmailCC))
+            {
+                string[] email_list = EmailCC.Split(';');
+                foreach (var mail in email_list)
+                {
+                    if (!ValidateEmail(mail))
+                    {
+                        validationErrors.Add("Email CC is not valid");
+                    }
+                }
             }
 
             if (MemoStatus == 2)

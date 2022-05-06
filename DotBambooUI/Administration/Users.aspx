@@ -20,6 +20,12 @@
                     <td><label>Email</label></td>
                     <td><asp:TextBox id="Email" runat="server"></asp:TextBox></td>
                 </tr>
+                <tr>
+                    <td><label>Show Disable</label></td>
+                    <td><asp:CheckBox ID="showDisable" runat="server" /></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </table>
             <asp:Button ID="Query" runat="server" OnClick="Query_Click" Text="Query" />
             <hr />

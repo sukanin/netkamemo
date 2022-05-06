@@ -94,6 +94,10 @@ public partial class Administration_Users : BasePage
         {
             filter = filter.Where(x => x.Email.Contains(Email.Text)).ToList();
         }
+        if (!showDisable.Checked)
+        {
+            filter = filter.Where(x => x.IsActive).ToList();
+        }
 
         return filter;
     }

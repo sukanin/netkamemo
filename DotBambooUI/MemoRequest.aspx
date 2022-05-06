@@ -168,7 +168,7 @@
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
         <ContentTemplate>
-            <h4>Reviewer: 1</h4>
+            <h4>Reviewer/Approver 1</h4>
             <table>
                 <tr>
                     <td>
@@ -201,7 +201,7 @@
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
         <ContentTemplate>
-            <h4>Reviewer: 2</h4>
+            <h4>Reviewer/Approver 2</h4>
             <table>
                 <tr>
                     <td>
@@ -234,7 +234,7 @@
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
         <ContentTemplate>
-            <h4>Reviewer: 3</h4>
+            <h4>Reviewer/Approver 3</h4>
             <table>
                 <tr>
                     <td>
@@ -267,7 +267,7 @@
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="UpdatePanel6" runat="server">
         <ContentTemplate>
-            <h4>Approver</h4>
+            <h4>Approver 4</h4>
             <table>
                 <tr>
                     <td>
