@@ -124,6 +124,18 @@ namespace EmailService
                     EventLog ev = new EventLog();
                     ev.Source = "PurchaseSystemEmailService";
                     ev.WriteEntry(exception.Message, EventLogEntryType.Error);
+                    
+                    //Update record after the email is sent
+                    email.EmailStatusFlag = EmailEO.EmailStatusFlagEnum.Sent;
+                    if (!email.Save(ref validationErrors, _entUserAccountId))
+                    {
+                        foreach (ValidationError ve in validationErrors)
+                        {
+                            EventLog ev = new EventLog();
+                            ev.Source = "PurchaseSystemEmailService";
+                            ev.WriteEntry(ve.ErrorMessage, EventLogEntryType.Error);
+                        }
+                    }
                 }
             }
         }
