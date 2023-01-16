@@ -42,6 +42,20 @@ public partial class TodolistPurchaseRequests : BasePage
                 temp.EditText = "View";
                 RadGrid1.MasterTableView.Columns[1].Visible = false;
             }
+
+
+            UserAccountEOList department = new UserAccountEOList();
+            department.Add(new UserAccountEO() { Section = "All" });
+
+            foreach (var item in Globals.GetDepartment(this.Cache))
+            {
+                department.Add(item);
+            }
+
+            Department.DataSource = department;
+            Department.DataTextField = "Section";
+            Department.DataValueField = "Section";
+            Department.DataBind();
         }
 
     }
@@ -125,6 +139,12 @@ public partial class TodolistPurchaseRequests : BasePage
         if (userId != 9999)
         {
             whereClause = string.Format("{0} AND e.user_account_id={1}", whereClause, userId);
+        }
+
+
+        if (Department.SelectedValue != "All")
+        {
+            whereClause = string.Format("{0} AND a.department='{1}' ", whereClause, Department.SelectedValue);
         }
 
         whereClause = string.Format("{0} order by a.memo_date desc,  a.memo_number desc limit 1000", whereClause);

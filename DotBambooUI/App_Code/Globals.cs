@@ -120,7 +120,6 @@ public static class Globals
         {
             LoadDepartments(cache);
         }
-
         return (UserAccountEOList)cache[CACHE_KEY_DEPARTMENTS];
     }
 

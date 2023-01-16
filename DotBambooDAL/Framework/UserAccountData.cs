@@ -51,7 +51,15 @@ namespace DotBambooDAL.Framework
 
         public List<UserAccount> SelectDistinctDepartment()
         {
-            return new List<UserAccount>();
+            using (DotBambooDataContext db = new DotBambooDataContext())
+            {
+                var query = (from it in db.UserAccounts
+                            group it by new { it.Section } into mygroup
+                            select mygroup.FirstOrDefault()).Distinct();
+
+                return query.ToList();
+
+            }
         }
 
         public List<UserAccount> SelectPurchaseDepartment()

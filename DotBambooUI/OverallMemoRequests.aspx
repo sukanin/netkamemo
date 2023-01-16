@@ -34,6 +34,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
+                        <label>Department</label>&nbsp;<asp:DropDownList ID="Department" runat="server"></asp:DropDownList>
                     </td>
                 </tr>
                 <tr>

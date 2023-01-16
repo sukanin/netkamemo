@@ -50,7 +50,7 @@
                         <telerik:GridBoundColumn DataField="Position" HeaderText="Position">
                             <HeaderStyle Width="120px" />
                         </telerik:GridBoundColumn>
-                        <telerik:GridBoundColumn DataField="Section" HeaderText="Section">
+                        <telerik:GridBoundColumn DataField="Section" HeaderText="Department">
                             <HeaderStyle Width="120px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="Email" HeaderText="Email">

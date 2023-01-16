@@ -33,6 +33,11 @@
                     </td>
                 </tr>
                 <tr>
+                    <td colspan="2">
+                        <label>Department</label>&nbsp;<asp:DropDownList ID="Department" runat="server"></asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         <label>Current State</label>&nbsp;<asp:DropDownList ID="State" runat="server" Width="200">
                             <asp:ListItem Text="All" Value="9999" Selected="True"></asp:ListItem>

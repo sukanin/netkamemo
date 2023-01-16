@@ -39,7 +39,7 @@ namespace EmailService
             {
                 //Log an event to the event log
                 EventLog ev = new EventLog();
-                ev.Source = "PurchaseSystemEmailService";
+                ev.Source = "MemoSystemEmailService";
                 ev.WriteEntry("The UserAccountId must be configured in the application configuration file before starting this service.  " +
                               "This value should be set to the valid UserAccountId in the UserAccount table which will be used to update the email record after it has been sent.", EventLogEntryType.Error);
 
@@ -75,56 +75,58 @@ namespace EmailService
             if (!_processing)
             {
                 _processing = true;
-                try
+
+                //Check if there are any emails that need to be sent
+                EmailEOList emails = new EmailEOList();
+                emails.LoadUnsent();
+
+                if (emails.Count != 0)
                 {
-                    //Check if there are any emails that need to be sent
-                    EmailEOList emails = new EmailEOList();
-                    emails.LoadUnsent();
+                    ValidationErrors validationErrors = new ValidationErrors();
 
-                    if (emails.Count != 0)
+                    //if there are then send one at a time
+                    SmtpClient client = new SmtpClient();
+
+                    foreach (EmailEO email in emails)
                     {
-                        ValidationErrors validationErrors = new ValidationErrors();
+                        MailMessage message = new MailMessage();
 
-                        //if there are then send one at a time
-                        SmtpClient client = new SmtpClient();
+                        message.From = new MailAddress(email.FromEmailAddress);
+                        AddAddresses(email.ToEmailAddress, message.To);
+                        AddAddresses(email.CcEmailAddress, message.CC);
+                        AddAddresses(email.BccEmailAddress, message.Bcc);
 
-                        foreach (EmailEO email in emails)
+                        message.Subject = email.Subject;
+                        message.Body = email.Body;
+                        message.IsBodyHtml = true;
+                        
+                        try
                         {
-                            MailMessage message = new MailMessage();
-
-                            message.From = new MailAddress(email.FromEmailAddress);
-                            AddAddresses(email.ToEmailAddress, message.To);
-                            AddAddresses(email.CcEmailAddress, message.CC);
-                            AddAddresses(email.BccEmailAddress, message.Bcc);
-
-                            message.Subject = email.Subject;
-                            message.Body = email.Body;
-                            message.IsBodyHtml = true;
-
                             client.Send(message);
+                        }
+                        catch (Exception exception)
+                        {
+                            _processing = false;
+                            EventLog ev = new EventLog();
+                            ev.Source = "MemoSystemEmailService";
+                            ev.WriteEntry(exception.Message, EventLogEntryType.Error);
+                        }
 
-                            //Update record after the email is sent
-                            email.EmailStatusFlag = EmailEO.EmailStatusFlagEnum.Sent;
-                            if (!email.Save(ref validationErrors, _entUserAccountId))
+                        //Update record after the email is sent
+                        email.EmailStatusFlag = EmailEO.EmailStatusFlagEnum.Sent;
+                        if (!email.Save(ref validationErrors, _entUserAccountId))
+                        {
+                            foreach (ValidationError ve in validationErrors)
                             {
-                                foreach (ValidationError ve in validationErrors)
-                                {
-                                    EventLog ev = new EventLog();
-                                    ev.Source = "PurchaseSystemEmailService";
-                                    ev.WriteEntry(ve.ErrorMessage, EventLogEntryType.Error);
-                                }
+                                EventLog ev = new EventLog();
+                                ev.Source = "MemoSystemEmailService";
+                                ev.WriteEntry(ve.ErrorMessage, EventLogEntryType.Error);
                             }
                         }
                     }
-                    _processing = false;
                 }
-                catch (Exception exception)
-                {
-                    _processing = false;
-                    EventLog ev = new EventLog();
-                    ev.Source = "PurchaseSystemEmailService";
-                    ev.WriteEntry(exception.Message, EventLogEntryType.Error);
-                }
+
+                _processing = false;
             }
         }
 

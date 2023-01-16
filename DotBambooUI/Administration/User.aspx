@@ -36,7 +36,7 @@
         
         <tr>
             <td>
-                <label>Section</label></td>
+                <label>Department</label></td>
             <td>
                 <asp:TextBox ID="txtSection" runat="server"></asp:TextBox>
             </td>

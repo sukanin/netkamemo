@@ -78,77 +78,81 @@ namespace MyNewService
             if (!_processing)
             {
                 _processing = true;
-                try
-                {
-                    //Check if there are any emails that need to be sent
-                    EmailEOList emails = new EmailEOList();
-                    emails.LoadUnsent();
+                
 
-                    if (emails.Count != 0)
+                //Check if there are any emails that need to be sent
+                EmailEOList emails = new EmailEOList();
+                emails.LoadUnsent();
+
+                if (emails.Count != 0)
+                {
+                    ValidationErrors validationErrors = new ValidationErrors();
+
+                    //if there are then send one at a time
+                    SmtpClient client = new SmtpClient();
+
+                    foreach (EmailEO email in emails)
                     {
-                        ValidationErrors validationErrors = new ValidationErrors();
+                        MailMessage message = new MailMessage();
 
-                        //if there are then send one at a time
-                        SmtpClient client = new SmtpClient();
-
-                        foreach (EmailEO email in emails)
+                        message.From = new MailAddress(email.FromEmailAddress);
+                        if (!String.IsNullOrEmpty(email.ToEmailAddress))
                         {
-                            MailMessage message = new MailMessage();
-
-                            message.From = new MailAddress(email.FromEmailAddress);
-                            if (!String.IsNullOrEmpty(email.ToEmailAddress))
-                            {
-                                AddAddresses(email.ToEmailAddress, message.To);
-                            }
-                            if (!String.IsNullOrEmpty(email.CcEmailAddress))
-                            {
-                                AddAddresses(email.CcEmailAddress, message.CC);
-                            }
-                            if (!String.IsNullOrEmpty(email.BccEmailAddress))
-                            {
-                                AddAddresses(email.BccEmailAddress, message.Bcc);
-                            }
-
-                            if (message.To.Count > 0)
-                            {
-                                message.Subject = email.Subject;
-                                message.Body = email.Body;
-                                message.IsBodyHtml = true;
-
-                                if (!string.IsNullOrEmpty(email.AttachmentPath))
-                                {
-                                    message.Attachments.Add(new Attachment(email.AttachmentPath));
-                                }
-
-                                client.Send(message);
-
-                                //Update record after the email is sent
-                                email.EmailStatusFlag = EmailEO.EmailStatusFlagEnum.Sent;
-                                if (!email.Save(ref validationErrors, _entUserAccountId))
-                                {
-                                    foreach (ValidationError ve in validationErrors)
-                                    {
-                                        EventLog ev = new EventLog();
-                                        ev.Source = "MemoSystemEmailService";
-                                        ev.WriteEntry(ve.ErrorMessage, EventLogEntryType.Error);
-                                    }
-                                }
-                            }else
-                            {
-
-                            }
-                            
+                            AddAddresses(email.ToEmailAddress, message.To);
                         }
+                        if (!String.IsNullOrEmpty(email.CcEmailAddress))
+                        {
+                            AddAddresses(email.CcEmailAddress, message.CC);
+                        }
+                        if (!String.IsNullOrEmpty(email.BccEmailAddress))
+                        {
+                            AddAddresses(email.BccEmailAddress, message.Bcc);
+                        }
+
+                        if (message.To.Count > 0)
+                        {
+                            message.Subject = email.Subject;
+                            message.Body = email.Body;
+                            message.IsBodyHtml = true;
+
+                            if (!string.IsNullOrEmpty(email.AttachmentPath))
+                            {
+                                message.Attachments.Add(new Attachment(email.AttachmentPath));
+                            }
+
+                            
+                            try
+                            {
+                                client.Send(message);
+                            }
+                            catch (Exception exception)
+                            {
+                                _processing = false;
+                                EventLog ev = new EventLog();
+                                ev.Source = "MemoSystemEmailService";
+                                ev.WriteEntry(exception.Message, EventLogEntryType.Error);
+                            }
+
+                            //Update record after the email is sent
+                            email.EmailStatusFlag = EmailEO.EmailStatusFlagEnum.Sent;
+                            if (!email.Save(ref validationErrors, _entUserAccountId))
+                            {
+                                foreach (ValidationError ve in validationErrors)
+                                {
+                                    EventLog ev = new EventLog();
+                                    ev.Source = "MemoSystemEmailService";
+                                    ev.WriteEntry(ve.ErrorMessage, EventLogEntryType.Error);
+                                }
+                            }
+                        }
+                        else
+                        {
+
+                        }
+
                     }
-                    _processing = false;
                 }
-                catch (Exception exception)
-                {
-                    _processing = false;
-                    EventLog ev = new EventLog();
-                    ev.Source = "MemoSystemEmailService";
-                    ev.WriteEntry(exception.Message, EventLogEntryType.Error);
-                }
+                _processing = false;
             }
         }
 

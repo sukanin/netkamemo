@@ -47,6 +47,19 @@ public partial class OverallPurchaseRequests : BasePage
             //{
                 RadGrid1.MasterTableView.GetColumn("Delete").Visible = true;
             //}
+
+            UserAccountEOList department = new UserAccountEOList();
+            department.Add(new UserAccountEO() { Section = "All" });
+
+            foreach (var item in Globals.GetDepartment(this.Cache))
+            {
+                department.Add(item);
+            }
+
+            Department.DataSource = department;
+            Department.DataTextField = "Section";
+            Department.DataValueField = "Section";
+            Department.DataBind();
         }
 
     }
@@ -181,6 +194,11 @@ public partial class OverallPurchaseRequests : BasePage
             {
                 whereClause = string.Format("{0} AND (a.insert_user_account_id = {1} or a.approver1_confirm_by = {1} or a.approver2_confirm_by = {1} or a.approver3_confirm_by = {1} or a.approver4_confirm_by = {1} )", whereClause, userId);
             }
+        }
+
+        if (Department.SelectedValue != "All")
+        {
+            whereClause = string.Format("{0} AND a.department='{1}' ", whereClause, Department.SelectedValue);
         }
 
         whereClause = string.Format("{0} order by a.memo_date desc,  a.memo_number desc limit 1000", whereClause);
